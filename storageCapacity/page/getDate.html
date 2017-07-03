@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="gbk">
+    <link rel="stylesheet" href="../css/StyleGet.css">
+    <script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../js/vue.min.js"></script>
+    <title>Title</title>
+</head>
+<div class="wrap">
+    <div class="center-con"  id="container_box">
+        <div class="top-container">
+            <div class="menu-item">仓号</div>
+            <div class="menu-item status1">货号</div>
+            <div class="menu-item status2">存储单位</div>
+            <div class="menu-item status3">库存总量</div>
+        </div>
+        <div class="main-container">
+            <div class="content-box">
+                <div class="list-item" v-for="content in storages" :class="content.TYPE | statusType">
+                    <div class="item-box" :class="content.stock[0].GB | pz">
+                        <div class="box-num">{{content.SH_NAME}}</div>
+                        <div class="box-show-content" :style="{height:(content.NUM / content.CAPACITY ) * 100 + '%'}">
+                            <div class="item-st-box"  v-for="(st,index) in content.stock"  :style="{width: (st.NUM/content.NUM)*100 + '%',background: 'url('+st.FOODTEXTURE+')','background-size': 'container'}"></div>
+                        </div>
+                        <div class="box-show-bg"></div>
+                    </div>
+                    <div class="item-data">{{content.NUM}}</div>
+                    <div class="menu-box">
+                        <div class="menu-item">选项一</div>
+                        <div class="menu-item">选项二</div>
+                        <div class="menu-item">选项三</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="bottom-container">
+            <div class="icon-item" v-for="item in tuli">
+                <span class="img-box"><img :src="item.FOODTEXTURE" alt=""></span>
+                <span class="test">{{item.GB_NAME}}</span>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+	var warehouseId = "45991F5A797CEC03C1BC7963D84DFEAC";
+</script>
+<script type="text/javascript" src="../js/vue_getDate.js"></script>
+<script>
+    $(function () {
+        $(document).bind("contextmenu",function(e){
+        	//console.log(warehouseId);
+            return false;
+        });
+    });
+	$('.content-box').on('mousedown','.list-item',function (e) {
+        $('.list-item').removeClass('show');
+        if(e.which == 3){
+            $(this).find(".menu-box").css({"left": e.clientX,"top": e.clientY});
+            $(this).addClass('show');
+       }
+        e.stopPropagation();
+    });
+    $(document).mousedown(function (e) {
+        $(".list-item").removeClass("show");
+        e.stopPropagation();
+    });
+</script>
+</html>
