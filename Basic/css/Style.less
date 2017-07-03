@@ -3,7 +3,7 @@
 @import "MtConfig.less";
 
 //初始化页面
-#Mt_initialize > .initialize(1200px,#f7f7f7);
+#Mt_initialize > .initialize(@minWidth,@defaultBg);
 
 /*region 常用布局*/
 //清除浮动
@@ -39,6 +39,12 @@
   display: block;
   margin: 0 auto;
   width: @minWidth;
+}
+//文字超出部分隐藏
+.overflow-text() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 //动画
 .transition(@property: all,@duration: 0.3s,@type: ease-in-out,@delay: 0s) {

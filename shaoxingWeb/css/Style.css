@@ -675,9 +675,9 @@ input::-webkit-input-placeholder {
   margin-bottom: 7px;
   display: inline-block;
   padding: 0 10px;
-  line-height: 31px;
+  line-height: 30px;
   color: #fff;
-  font-size: 17px;
+  font-size: 16px;
   background: #007840;
   border-radius: 3px;
 }
