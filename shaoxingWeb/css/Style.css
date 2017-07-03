@@ -410,6 +410,9 @@ input::-webkit-input-placeholder {
 .footer .bottom-box .main-box .link-box .link-item.last {
   border: none;
 }
+.footer .bottom-box .main-box .link-box .link-item:hover {
+  color: #d78700;
+}
 .footer .bottom-box .main-box .box {
   text-align: center;
   line-height: 30px;
@@ -426,6 +429,24 @@ input::-webkit-input-placeholder {
   font-size: 14px;
 }
 .footer .bottom-box .main-box .box .text a:hover {
+  color: #007840;
+}
+/*endregion*/
+/*region 公用*/
+.brade-box {
+  display: block;
+  padding: 10px 30px;
+  line-height: 30px;
+  color: #595959;
+  font-size: 14px;
+}
+.brade-box .text {
+  color: #595959;
+  margin: 0 2px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.brade-box .text:hover {
   color: #007840;
 }
 /*endregion*/
@@ -730,5 +751,199 @@ input::-webkit-input-placeholder {
 }
 .index-wrap .img-wrap img {
   display: block;
+}
+/*endregion*/
+/*region pageList 列表页*/
+.page-list .main-box .menu-box {
+  width: 260px;
+  border: solid 1px #ccc;
+}
+.page-list .main-box .menu-box .menu-title {
+  padding: 20px;
+  display: block;
+  line-height: 35px;
+  background: #007840;
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+}
+.page-list .main-box .menu-box .menu-list-box {
+  background: #f6f6f6;
+}
+.page-list .main-box .menu-box .menu-list-box .list-item {
+  position: relative;
+  padding: 15px 35px;
+  display: block;
+  line-height: 30px;
+  font-size: 18px;
+  cursor: pointer;
+}
+.page-list .main-box .menu-box .menu-list-box .list-item:after {
+  display: none;
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: #d78700;
+}
+.page-list .main-box .menu-box .menu-list-box .list-item:hover,
+.page-list .main-box .menu-box .menu-list-box .list-item.active {
+  background: #fff;
+}
+.page-list .main-box .menu-box .menu-list-box .list-item:hover:after,
+.page-list .main-box .menu-box .menu-list-box .list-item.active:after {
+  display: block;
+}
+.page-list .main-box .list-wrap {
+  width: 880px;
+}
+.page-list .main-box .list-wrap .title {
+  display: block;
+  padding: 10px 15px;
+  line-height: 27px;
+  background: #f5f5f5;
+}
+.page-list .main-box .list-wrap .title:before {
+  content: "";
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  background: #d78700;
+  width: 5px;
+  height: 23px;
+}
+.page-list .main-box .list-wrap .title .text {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 23px;
+  font-weight: bold;
+  color: #d78700;
+}
+.page-list .main-box .list-wrap .list-box {
+  padding: 30px 10px;
+}
+.page-list .main-box .list-wrap .list-box .list-item {
+  position: relative;
+  padding: 10px 0;
+  padding-right: 100px;
+  line-height: 30px;
+  border-bottom: dashed 1px #ddd;
+}
+.page-list .main-box .list-wrap .list-box .list-item .text {
+  display: block;
+  line-height: 30px;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.page-list .main-box .list-wrap .list-box .list-item .date {
+  position: absolute;
+  width: 100px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  line-height: 50px;
+  font-size: 14px;
+  text-align: right;
+  color: #888;
+}
+.page-list .main-box .list-wrap .page-num-box {
+  text-align: center;
+  line-height: 30px;
+  margin: 30px 0;
+}
+.page-list .main-box .list-wrap .page-num-box .text {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 15px;
+  margin: 0 2px;
+}
+.page-list .main-box .list-wrap .page-num-box .btn-num {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 10px;
+  margin: 0 3px;
+  border: solid 1px #ddd;
+  font-size: 15px;
+  cursor: pointer;
+}
+.page-list .main-box .list-wrap .page-num-box .btn-num.disable {
+  cursor: not-allowed;
+  background: #ddd;
+}
+.page-list .main-box .list-wrap .page-num-box .btn-num.disable:hover {
+  color: #000;
+  background: #ddd;
+}
+.page-list .main-box .list-wrap .page-num-box .btn-num.active,
+.page-list .main-box .list-wrap .page-num-box .btn-num:hover {
+  background: #007840;
+  color: #fff;
+}
+.page-list .main-box .list-wrap .page-num-box .select-box {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 30px;
+  font-size: 14px;
+}
+/*endregion*/
+/*region pageDetail 详情页*/
+.page-detail .detail-box {
+  display: block;
+  padding: 20px 50px;
+}
+.page-detail .detail-box .top-box {
+  border-bottom: solid 3px #007840;
+}
+.page-detail .detail-box .top-box .title {
+  display: block;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 40px;
+  text-align: center;
+}
+.page-detail .detail-box .top-box .sub-title {
+  margin: 20px 0;
+  margin-top: 10px;
+  line-height: 30px;
+  text-align: center;
+}
+.page-detail .detail-box .top-box .sub-title .text {
+  margin: 0 8px;
+  display: inline-block;
+  vertical-align: middle;
+  color: #8a8a8a;
+  font-size: 14px;
+}
+.page-detail .detail-box .main-box {
+  padding: 20px 0;
+  display: block;
+  line-height: 40px;
+}
+.page-detail .detail-box .main-box .text {
+  display: block;
+  font-weight: bold;
+  font-size: 15px;
+}
+.page-detail .detail-box .main-box p {
+  display: block;
+  font-size: 15px;
+  text-indent: 2em;
+}
+.page-detail .detail-box .btn-box {
+  margin: 20px 0;
+}
+.page-detail .detail-box .btn-box .btn {
+  display: block;
+  line-height: 30px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+}
+.page-detail .detail-box .btn-box .btn:hover {
+  color: #d78700;
 }
 /*endregion*/
