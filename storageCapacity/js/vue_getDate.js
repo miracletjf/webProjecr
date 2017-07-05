@@ -33,6 +33,11 @@ var containerBox = new Vue({
             }
             return 'status';
         },
+        statusType2: function(index){
+            if((index/5)%2 == 0){
+                return 'status1';
+            }
+        },
         pz: function (value) {
             if (value == 83 || value == 85) {
                 return 'xiaomai';
