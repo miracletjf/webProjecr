@@ -1,0 +1,289 @@
+@charset "utf-8";
+
+@import "MtConfig.less";
+
+//初始化页面
+#Mt_initialize > .initialize(1200px, @defaultBg);
+
+/*region 常用布局*/
+//清除浮动
+.clear-float:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+//左浮动
+.float-l {
+  float: left;
+}
+
+//右浮动
+.float-r {
+  float: right;
+}
+
+//弹性盒子
+.flex-box {
+  display: -moz-box !important;
+  display: -webkit-box !important;
+  display: box !important;
+}
+
+.box-flex(@n: 1) {
+  -moz-box-flex: @n;
+  -webkit-box-flex: @n;
+  box-flex: @n;
+}
+
+.box-flex1 {
+  .box-flex();
+}
+
+//居中盒子
+.center-con {
+  display: block;
+  margin: 0 auto;
+  width: @minWidth;
+}
+
+//文字超出部分隐藏
+.overflow-text() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+//动画
+.transition(@property: all,@duration: 0.3s,@type: ease-in-out,@delay: 0s) {
+  //css3过度
+  -webkit-transition: @arguments;
+  -moz-transition: @arguments;
+  -o-transition: @arguments;
+  transition: @arguments;
+}
+
+.transform(@name,@argu) {
+  //css3变换
+  -webkit-transform: e(%('%s(%s)', @name, @argu));
+  -moz-transform: e(%('%s(%s)', @name, @argu));
+  -ms-transform: e(%('%s(%s)', @name, @argu));
+  -o-transform: e(%('%s(%s)', @name, @argu));
+  transform: e(%('%s(%s)', @name, @argu));
+}
+
+/*endregion*/
+
+/*region index 仓容首页*/
+.top-container {
+  margin: 20px 0;
+
+  .menu-item {
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 5px;
+    width: 114px;
+    line-height: 36px;
+    text-align: center;
+    color: #fff;
+    background: #2288ec;
+    border-radius: 5px;
+    cursor: pointer;
+    &.status1 {
+      background: #01a800;
+    }
+    &.status2 {
+      background: #ff6565;
+    }
+    &.status3 {
+      background: #ffaa2d;
+    }
+  }
+
+}
+
+.main-container {
+  margin: 50px 0;
+  min-height: 464px;
+  .content-box {
+    margin: 40px 0;
+    font-size: 0;
+
+    .list-item {
+      display: inline-block;
+      vertical-align: middle;
+      margin-right: 20px;
+      padding: 0 12px;
+      width: 95px;
+      text-align: center;
+      cursor: pointer;
+
+      .item-box {
+        position: relative;
+        display: block;
+        margin: 0 auto;
+        width: 50px;
+        height: 60px;
+        font-size: 14px;
+        background: #d9d9d9;
+        .box-num {
+          position: absolute;
+          top: 0;
+          left: 2px;
+          right: 2px;
+          line-height: 20px;
+          font-size: 14px;
+          z-index: 10;
+        }
+        .box-show-content {
+          position: absolute;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          font-size: 0;
+          height: 80%;
+          z-index: 2;
+          .item-st-box {
+            display: inline-block;
+            vertical-align: bottom;
+            width: 100%;
+            height: 100%;
+          }
+
+        }
+        .box-show-bg {
+          position: absolute;
+          top: 20px;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          z-index: 4;
+        }
+        &.xiaomai .box-show-bg {
+          background: url("icon/icon-wheat.png") no-repeat scroll 50% 20%;
+        }
+        &.yumi .box-show-bg {
+          background: url("icon/icon-yumi.png") no-repeat scroll 50% 20%;
+        }
+        &.zaoxianmi .box-show-bg {
+          background: url("icon/icon-zaoxianmi.png") no-repeat scroll 50% 20%;
+        }
+        &.wanxianmi .box-show-bg {
+          background: url("icon/icon-wanxianmi.png") no-repeat scroll 50% 20%;
+        }
+        &.dadou .box-show-bg {
+          background: url("icon/icon-dadou.png") no-repeat scroll 50% 20%;
+        }
+      }
+
+      .item-data {
+        font-size: 14px;
+        line-height: 24px;
+        border: solid 1px #333;
+      }
+      .menu-box {
+        display: none;
+        position: absolute;
+        left: 90px;
+        top: 0px;
+        background: #fff;
+        border: solid 1px #eee;
+        z-index: 100;
+
+        .menu-item {
+          line-height: 30px;
+          width: 80px;
+          font-size: 14px;
+          border-bottom: solid 1px #eee;
+          &:last-child {
+            border: none;
+          }
+          &:hover {
+            color: #fff;
+            background: #32d7ae;
+          }
+        }
+      }
+      &.status1 {
+        padding: 0 18px;
+        .item-box {
+          width: 40px;
+          height: 88px;
+          .box-num {
+            top: 4px;
+          }
+          .box-show-bg {
+            top: 36px;
+            background-size: auto 62%;
+          }
+        }
+        .item-data {
+          line-height: 20px;
+        }
+      }
+      &.status2 {
+        padding: 0;
+        width: 95px;
+        .item-box {
+          width: 95px;
+          height: 56px;
+          .box-num {
+            top: 0;
+            text-align: left;
+          }
+          .box-show-bg {
+            top: 10px;
+            background-position: 66% 60%;
+          }
+        }
+        .item-data {
+          line-height: 28px;
+          border: none;
+        }
+      }
+      &.show .menu-box {
+        display: block;
+      }
+    }
+
+  }
+}
+
+.bottom-container {
+  .icon-item {
+    position: relative;
+    display: inline-block;
+    margin-right: 20px;
+    padding-left: 25px;
+    padding-right: 5px;
+    vertical-align: middle;
+    line-height: 20px;
+    font-size: 14px;
+    cursor: pointer;
+    &:after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 20px;
+    }
+    &.xiaomai:after {
+      background: url("icon/icon-show-xiaomai.png") no-repeat center;
+    }
+    &.yumi:after {
+      background: url("icon/icon-show-yumi.png") no-repeat center;
+    }
+    &.zaoxianmi:after {
+      background: url("icon/icon-show-zaoxianmi.png") no-repeat center;
+    }
+    &.wanxianmi:after {
+      background: url("icon/icon-show-wanxianmi.png") no-repeat center;
+    }
+    &.dadou:after {
+      background: url("icon/icon-show-dadou.png") no-repeat center;
+    }
+  }
+}
+
+/*endregion*/
