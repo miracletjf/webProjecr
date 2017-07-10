@@ -81,12 +81,12 @@ td,
   font-size: 15px;
   /*line-height: 1em;*/
   font-family: "微软雅黑";
-  color: #000000;
+  color: #000;
   vertical-align: baseline;
   -webkit-tap-highlight-color: transparent;
 }
 body {
-  background: #f5f5f5;
+  background: #ffffff;
   overflow-x: hidden;
 }
 i,
@@ -148,7 +148,7 @@ input::-webkit-input-placeholder {
 }
 .wrap {
   width: 100%;
-  min-width: 1180px;
+  min-width: 1200px;
 }
 /*region 常用布局*/
 .clear-float:after {
@@ -175,7 +175,7 @@ input::-webkit-input-placeholder {
 .center-con {
   display: block;
   margin: 0 auto;
-  width: 1180px;
+  width: 1200px;
 }
 /*endregion*/
 /*region index 仓容首页*/
