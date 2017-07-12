@@ -98,9 +98,10 @@
     var poi = new BMap.Point(112.919784,28.234457);
     map.centerAndZoom(poi, 16);
     map.enableScrollWheelZoom();
-    var data_info = [{pointX:112.919784,title: "库点TEST1",pointY:28.234457,name:"王大锤",address:"地址：北京市东城区王府井大街88号乐天银泰百货八层"},
-            {pointX:112.910586,pointY:28.182507,title:"库点TEST2",name:"李工",address:"地址：北京市东城区东华门大街"},
-        {pointX:113.011771,pointY:28.17945,title:"库点TEST3",name:"刘成师",address:"地址：北京市东城区正义路甲5号"}];
+    var data_info = [{pointX:112.919784,title: "库点TEST1",pointY:28.234457,name:"王大锤",address:"地址：北京市东城区王府井大街88号乐天银泰百货八层",index:0},
+            {pointX:112.910586,pointY:28.182507,title:"库点TEST2",name:"李工",address:"地址：北京市东城区东华门大街",index:1},
+        {pointX:113.011771,pointY:28.17945,title:"库点TEST3",name:"刘成师",address:"地址：北京市东城区正义路甲5号",index:2}];
+
     function creatMarkerInfo(obj,marker) {
         var content = '<div class="info-box">'+
             '<div class="info-list clear-float">'+
@@ -144,6 +145,10 @@
         });
         map.addOverlay(marker); //在地图中添加marker
     }
+    function addMarker(point, index) {  // 创建图标对象
+
+
+    }
 
     function getBoundary(){
         var bdary = new BMap.Boundary();
@@ -161,7 +166,18 @@
             }
             map.setViewport(pointArray);    //调整视野
             for(var j =0;j<data_info.length;j++){
-                var marker = new BMap.Marker(new BMap.Point(data_info[j].pointX,data_info[j].pointY)); //创建marker对象
+                var myIcon = new BMap.Icon("images/markermy.png", new BMap.Size(23, 25), {
+                    // 指定定位位置。
+                    // 当标注显示在地图上时，其所指向的地理位置距离图标左上
+                    // 角各偏移10像素和25像素。您可以看到在本例中该位置即是
+                    // 图标中央下端的尖角位置。
+                    offset: new BMap.Size(10, 25),
+                    // 设置图片偏移。
+                    // 当您需要从一幅较大的图片中截取某部分作为标注图标时，您
+                    // 需要指定大图的偏移位置，此做法与css sprites技术类似。
+                    imageOffset: new BMap.Size(0, 0 - data_info[j].index * 25)   // 设置图片偏移
+                });
+                var marker = new BMap.Marker(new BMap.Point(data_info[j].pointX,data_info[j].pointY),{icon:myIcon}); //创建marker对象
                 creatMarkerInfo(data_info[j],marker);
             }
         });
