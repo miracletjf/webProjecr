@@ -312,7 +312,7 @@ input::-webkit-input-placeholder {
 }
 .main-container .item-group .list-item {
   display: inline-block;
-  vertical-align: middle;
+  vertical-align: bottom;
   margin: 20px 10px;
   padding: 0 12px;
   width: 95px;
@@ -435,6 +435,7 @@ input::-webkit-input-placeholder {
 }
 .main-container .item-group .list-item.status2 {
   padding: 0;
+  margin: 20px 15px;
   width: 95px;
 }
 .main-container .item-group .list-item.status2 .item-box {
@@ -455,7 +456,7 @@ input::-webkit-input-placeholder {
   background-position: 66% 60%;
 }
 .main-container .item-group .list-item.status2 .item-data {
-  line-height: 28px;
+  line-height: 21px;
   border: none;
 }
 .main-container .item-group .list-item.show .menu-box {

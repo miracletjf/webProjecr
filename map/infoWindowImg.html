@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        body, html {width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+        #allmap{width:100%;height:500px;}
+        p{margin-left:5px; font-size:14px;}
+        /*region 信息化窗口*/
+        .clear-float:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .float-l {
+            float: left;
+        }
+        .float-r {
+            float: right;
+        }
+        .info-box {
+            width: 320px;
+        }
+        .info-box .info-title {
+            display: block;
+            padding: 0 10px;
+            line-height: 33px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .info-box .info-list {
+            line-height: 21px;
+            padding: 4px 6px;
+        }
+        .info-box .info-list:nth-child(2n) {
+            background: #f5f5f5;
+        }
+        .info-box .info-list .key {
+            display: block;
+            width: 100px;
+            font-size: 14px;
+        }
+        .info-box .info-list .value {
+            display: block;
+            width: 200px;
+            font-size: 13px;
+            color: #333;
+            max-height: 126px;
+            overflow: auto;
+        }
+        .info-box .info-bottom {
+            border-top: solid 1px #eee;
+            text-align: center;
+        }
+        .info-box .info-bottom .nav-btn {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 4px 10px;
+        }
+        .info-box .info-bottom .nav-btn img {
+            display: block;
+        }
+        /*endregion*/
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=A4749739227af1618f7b0d1b588c0e85"></script>
+    <title>添加复杂内容的信息窗口</title>
+</head>
+<body>
+<div id="allmap"></div>
+<p>点击标注点，可查看由文本，图片构成的复杂型信息窗口</p>
+</body>
+</html>
+<script type="text/javascript">
+    // 百度地图API功能
+    var sContent = '<div class="info-box">'+
+        '<div class="info-list clear-float">'+
+        '<div class="key float-l">联系人</div>'+
+        '<div class="value float-r">王大锤</div>'+
+        '</div>'+
+        '<div class="info-list clear-float">'+
+        '<div class="key float-l">联系方式</div>'+
+        '<div class="value float-r">13989886789</div>'+
+        '</div>'+
+        '<div class="info-list clear-float">'+
+        '<div class="key float-l">地址</div>'+
+        '<div class="value float-r">大锤镇大锤乡大锤组111号</div>'+
+        '</div>'+
+        '<div class="info-list clear-float">'+
+        '<div class="key float-l">库存信息</div>'+
+        '<div class="value float-r">晚籼谷：26007.6 吨，晚粳谷：3111.0 吨，早籼谷：47885.9 吨，，早籼米：843.1 吨，晚籼米：7838.4 吨，大豆：1000.0 吨，一级大豆油：650.0 吨，一级菜籽油：350.0 吨</div>'+
+        '</div>'+
+        '<div class="info-bottom">'+
+        '<a href="" class="nav-btn">'+
+        '<img src="images/3d.png" alt="">'+
+        '</a>'+
+        '<a href="" class="nav-btn">'+
+        '<img src="images/video.png" alt="">'+
+        '</a></div></div>';
+    var map = new BMap.Map("allmap");
+    var point = new BMap.Point(116.404, 39.915);
+    var marker = new BMap.Marker(point);
+    var infoWindow = new BMap.InfoWindow(sContent,{
+        title  : "库点TEST",      //标题
+        width  : 320,             //宽度
+        height : 305,              //高度
+        panel  : "panel",         //检索结果面板
+    });  // 创建信息窗口对象
+    map.centerAndZoom(point, 15);
+    map.addOverlay(marker);
+    marker.addEventListener("click", function(){
+        this.openInfoWindow(infoWindow);
+        //图片加载完毕重绘infowindow
+        document.getElementById('imgDemo').onload = function (){
+            infoWindow.redraw();   //防止在网速较慢，图片未加载时，生成的信息框高度比图片的总高度小，导致图片部分被隐藏
+        }
+    });
+</script>

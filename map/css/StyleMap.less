@@ -1,0 +1,117 @@
+@charset "utf-8";
+
+@import "MtConfig.less";
+
+//初始化页面
+#Mt_initialize > .initialize(@minWidth,@defaultBg);
+
+/*region 常用布局*/
+//清除浮动
+.clear-float:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+//左浮动
+.float-l {
+  float: left;
+}
+//右浮动
+.float-r {
+  float: right;
+}
+//弹性盒子
+.flex-box {
+  display: -moz-box!important;
+  display: -webkit-box!important;
+  display: box!important;
+}
+.box-flex(@n: 1) {
+  -moz-box-flex: @n;
+  -webkit-box-flex: @n;
+  box-flex: @n;
+}
+.box-flex1 {
+  .box-flex();
+}
+//居中盒子
+.center-cotar {
+  display: block;
+  margin: 0 auto;
+  width: @minWidth;
+}
+//文字超出部分隐藏
+.overflow-text() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+//动画
+.transition(@property: all,@duration: 0.3s,@type: ease-in-out,@delay: 0s) {
+  //css3过度
+  -webkit-transition: @arguments;
+  -moz-transition: @arguments;
+  -o-transition: @arguments;
+  transition: @arguments;
+}
+
+.transform(@name,@argu) {
+  //css3变换
+  -webkit-transform: e(%('%s(%s)',@name,@argu));
+  -moz-transform: e(%('%s(%s)',@name,@argu));
+  -ms-transform: e(%('%s(%s)',@name,@argu));
+  -o-transform: e(%('%s(%s)',@name,@argu));
+  transform: e(%('%s(%s)',@name,@argu));
+}
+/*endregion*/
+/*region 地图标注*/
+.map-wrap {
+  width: 100%;
+  height: 800px;
+}
+/*endregion*/
+
+/*region 信息化窗口*/
+.info-box {
+  width: 320px;
+  .info-title {
+    display: block;
+    padding: 0 10px;
+    line-height: 33px;
+    font-size: 15px;
+    font-weight: bold;
+  }
+  .info-list {
+    line-height: 21px;
+    padding: 4px 6px;
+    &:nth-child(2n) {
+      background: #f5f5f5;
+    }
+    .key {
+      display: block;
+      width: 100px;
+      font-size: 14px;
+    }
+    .value {
+      display: block;
+      width: 200px;
+      font-size: 13px;
+      color: #333;
+      max-height: 126px;
+      overflow: auto;
+    }
+  }
+  .info-bottom {
+    border-top: solid 1px #eee;
+    text-align: center;
+      .nav-btn {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 4px 10px;
+        img {
+          display: block;
+        }
+      }
+  }
+}
+/*endregion*/

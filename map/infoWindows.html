@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        body, html{width: 100%;height: 100%;margin:0;font-family:"微软雅黑";}
+        #allmap {height: 500px;width:100%;overflow: hidden;}
+        #result {width:100%;font-size:12px;}
+        dl,dt,dd,ul,li{
+            margin:0;
+            padding:0;
+            list-style:none;
+        }
+        dt{
+            font-size:14px;
+            font-family:"微软雅黑";
+            font-weight:bold;
+            border-bottom:1px dotted #000;
+            padding:5px 0 5px 5px;
+            margin:5px 0;
+        }
+        dd{
+            padding:5px 0 0 5px;
+        }
+        li{
+            line-height:28px;
+        }
+
+        /*region 信息化窗口*/
+        .clear-float:after {
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .float-l {
+            float: left;
+        }
+        .float-r {
+            float: right;
+        }
+        .info-box {
+            width: 320px;
+        }
+        .info-box .info-title {
+            display: block;
+            padding: 0 10px;
+            line-height: 33px;
+            font-size: 15px;
+            font-weight: bold;
+        }
+        .info-box .info-list {
+            line-height: 21px;
+            padding: 4px 6px;
+        }
+        .info-box .info-list:nth-child(2n) {
+            background: #f5f5f5;
+        }
+        .info-box .info-list .key {
+            display: block;
+            width: 100px;
+            font-size: 14px;
+        }
+        .info-box .info-list .value {
+            display: block;
+            width: 200px;
+            font-size: 13px;
+            color: #333;
+            max-height: 126px;
+            overflow: auto;
+        }
+        .info-box .info-bottom {
+            border-top: solid 1px #eee;
+            text-align: center;
+        }
+        .info-box .info-bottom .nav-btn {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 4px 10px;
+        }
+        .info-box .info-bottom .nav-btn img {
+            display: block;
+        }
+        /*endregion*/
+
+    </style>
+    <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=A4749739227af1618f7b0d1b588c0e85"></script>
+    <script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
+    <title>带检索功能的信息窗口</title>
+</head>
+<body>
+<div id="allmap"></div>
+<script type="text/javascript">
+    // 百度地图API功能
+    var map = new BMap.Map('allmap');
+    var poi = new BMap.Point(116.307852,40.057031);
+    map.centerAndZoom(poi, 16);
+    map.enableScrollWheelZoom();
+
+    var content = '<div class="info-box">'+
+        '<div class="info-list clear-float">'+
+        '<div class="key float-l">联系人</div>'+
+        '<div class="value float-r">王大锤</div>'+
+        '</div>'+
+        '<div class="info-list clear-float">'+
+        '<div class="key float-l">联系方式</div>'+
+        '<div class="value float-r">13989886789</div>'+
+        '</div>'+
+        '<div class="info-list clear-float">'+
+        '<div class="key float-l">地址</div>'+
+        '<div class="value float-r">大锤镇大锤乡大锤组111号</div>'+
+        '</div>'+
+        '<div class="info-list clear-float">'+
+        '<div class="key float-l">库存信息</div>'+
+        '<div class="value float-r">晚籼谷：26007.6 吨，晚粳谷：3111.0 吨，早籼谷：47885.9 吨，，早籼米：843.1 吨，晚籼米：7838.4 吨，大豆：1000.0 吨，一级大豆油：650.0 吨，一级菜籽油：350.0 吨</div>'+
+    '</div>'+
+    '<div class="info-bottom">'+
+        '<a href="" class="nav-btn">'+
+        '<img src="images/3d.png" alt="">'+
+        '</a>'+
+        '<a href="" class="nav-btn">'+
+        '<img src="images/video.png" alt="">'+
+        '</a></div></div>';
+    //创建检索信息窗口对象
+    var searchInfoWindow = null;
+    searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
+        title  : "库点TEST",      //标题
+        width  : 320,             //宽度
+        height : 265,              //高度
+        panel  : "panel",         //检索结果面板
+        enableAutoPan : true,     //自动平移
+        enableSendToPhone: false, //是否显示发送到手机按钮
+        searchTypes   :[
+         //   BMAPLIB_TAB_SEARCH,   //周边检索
+         //   BMAPLIB_TAB_TO_HERE,  //到这里去
+         //   BMAPLIB_TAB_FROM_HERE //从这里出发
+        ]
+    });
+    var marker = new BMap.Marker(poi); //创建marker对象
+    marker.enableDragging(); //marker可拖拽
+    marker.addEventListener("click", function(e){
+        searchInfoWindow.open(marker);
+    })
+    map.addOverlay(marker); //在地图中添加marker
+
+
+    function getBoundary(){
+        var bdary = new BMap.Boundary();
+        bdary.get("湖南省长沙市", function(rs){       //获取行政区域
+            var count = rs.boundaries.length; //行政区域的点有多少个
+            if (count === 0) {
+                alert('未能获取当前输入行政区域');
+                return ;
+            }
+            var pointArray = [];
+            for (var i = 0; i < count; i++) {
+                var ply = new BMap.Polygon(rs.boundaries[i], {strokeWeight: 1, strokeColor: "#ff0000",fillOpacity: 0.4}); //建立多边形覆盖物
+                map.addOverlay(ply);  //添加覆盖物
+                pointArray = pointArray.concat(ply.getPath());
+            }
+            map.setViewport(pointArray);    //调整视野
+        });
+    }
+
+    setTimeout(function(){
+        getBoundary();
+    }, 2000);
+
+</script>
+</body>
+</html>
