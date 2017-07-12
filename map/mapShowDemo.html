@@ -94,29 +94,29 @@
 <script type="text/javascript">
     // 百度地图API功能
     var map = new BMap.Map('allmap');
-    var poi = new BMap.Point(116.307852,40.057031);
+    var poi = new BMap.Point(112.919784,28.234457);
     map.centerAndZoom(poi, 16);
     map.enableScrollWheelZoom();
-    var data_info = [{pointX:116.417854,pointY:39.921988,address:"地址：北京市东城区王府井大街88号乐天银泰百货八层"},
-            {pointX:116.406605,pointY:39.921585,address:"地址：北京市东城区东华门大街"},
-        {pointX:116.412222,pointY:39.912345,address:"地址：北京市东城区正义路甲5号"}];
-    function creatMarkerInfo(pointM,obj) {
+    var data_info = [{pointX:112.919784,title: "库点TEST1",pointY:28.234457,name:"王大锤",address:"地址：北京市东城区王府井大街88号乐天银泰百货八层"},
+            {pointX:112.910586,pointY:28.182507,title:"库点TEST2",name:"李工",address:"地址：北京市东城区东华门大街"},
+        {pointX:113.011771,pointY:28.17945,title:"库点TEST3",name:"刘成师",address:"地址：北京市东城区正义路甲5号"}];
+    function creatMarkerInfo(obj,marker) {
         var content = '<div class="info-box">'+
             '<div class="info-list clear-float">'+
-            '<div class="key float-l">'++'</div>'+
-            '<div class="value float-r">王大锤</div>'+
+            '<div class="key float-l">联系人</div>'+
+            '<div class="value float-r">'+obj.name+'</div>'+
             '</div>'+
             '<div class="info-list clear-float">'+
             '<div class="key float-l">联系方式</div>'+
-            '<div class="value float-r">13989886789</div>'+
+            '<div class="value float-r">'+obj.name+'</div>'+
             '</div>'+
             '<div class="info-list clear-float">'+
             '<div class="key float-l">地址</div>'+
-            '<div class="value float-r">大锤镇大锤乡大锤组111号</div>'+
+            '<div class="value float-r">'+obj.address+'</div>'+
             '</div>'+
             '<div class="info-list clear-float">'+
             '<div class="key float-l">库存信息</div>'+
-            '<div class="value float-r">晚籼谷：26007.6 吨，晚粳谷：3111.0 吨，早籼谷：47885.9 吨，，早籼米：843.1 吨，晚籼米：7838.4 吨，大豆：1000.0 吨，一级大豆油：650.0 吨，一级菜籽油：350.0 吨</div>'+
+            '<div class="value float-r">'+obj.address+'</div>'+
             '</div>'+
             '<div class="info-bottom">'+
             '<a href="" class="nav-btn">'+
@@ -128,9 +128,7 @@
         //创建检索信息窗口对象
         var searchInfoWindow = null;
         searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
-            title  : "库点TEST",      //标题
-            width  : 320,             //宽度
-            height : 265,              //高度
+            title  : obj.title,      //标题
             panel  : "panel",         //检索结果面板
             enableAutoPan : true,     //自动平移
             enableSendToPhone: false, //是否显示发送到手机按钮
@@ -140,15 +138,11 @@
                 //   BMAPLIB_TAB_FROM_HERE //从这里出发
             ]
         });
-        var marker = new BMap.Marker(poi); //创建marker对象
         marker.addEventListener("click", function(e){
             searchInfoWindow.open(marker);
         });
         map.addOverlay(marker); //在地图中添加marker
     }
-
-
-
 
     function getBoundary(){
         var bdary = new BMap.Boundary();
@@ -165,13 +159,16 @@
                 pointArray = pointArray.concat(ply.getPath());
             }
             map.setViewport(pointArray);    //调整视野
-
+            for(var j =0;j<data_info.length;j++){
+                var marker = new BMap.Marker(new BMap.Point(data_info[j].pointX,data_info[j].pointY)); //创建marker对象
+                creatMarkerInfo(data_info[j],marker);
+            }
         });
     }
 
     setTimeout(function(){
         getBoundary();
-    }, 2000);
+    }, 200);
 
 </script>
 </body>
