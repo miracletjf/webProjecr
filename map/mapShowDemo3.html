@@ -86,7 +86,7 @@
 
     </style>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=A4749739227af1618f7b0d1b588c0e85"></script>
-    <script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
+    <script type="text/javascript" src="js/searchWindow.js"></script>
     <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
     <title>带检索功能的信息窗口</title>
 </head>
@@ -135,9 +135,9 @@
             enableAutoPan : true,     //自动平移
             enableSendToPhone: false, //是否显示发送到手机按钮
             searchTypes   :[
-                //   BMAPLIB_TAB_SEARCH,   //周边检索
-                //   BMAPLIB_TAB_TO_HERE,  //到这里去
-                //   BMAPLIB_TAB_FROM_HERE //从这里出发
+                   BMAPLIB_TAB_SEARCH,   //周边检索
+                   BMAPLIB_TAB_TO_HERE,  //到这里去
+                   BMAPLIB_TAB_FROM_HERE //从这里出发
             ]
         });
         marker.addEventListener("click", function(e){
