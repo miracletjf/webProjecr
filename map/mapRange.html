@@ -50,25 +50,14 @@
         ]
     });
 
-    map.disableDragging();//禁止拖动
-    map.disableDoubleClickZoom();//禁止双击缩放
+
     var blist = [];
     var districtLoading = 0;
 
     function getBoundary() {
 
 
-        addDistrict("广州越秀区");
-        addDistrict("广州从化区");
-        addDistrict("广州荔湾区");
-        addDistrict("广州天河区");
-        addDistrict("广州白云区");
-        addDistrict("广州黄埔区");
-        addDistrict("广州花都区");
-        addDistrict("广州番禺区");
-        addDistrict("广州南沙区");
-        addDistrict("广州海珠区");
-        addDistrict("广州增城");
+        addDistrict("湖南");
 
     }
 
@@ -104,7 +93,6 @@
      * 各种鼠标事件绑定
      */
     function click(evt) {
-        alert(evt.target.name);
     }
 
     function mouseover(evt) {
