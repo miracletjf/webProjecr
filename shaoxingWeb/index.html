@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/Style.css">
     <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/ScrollText.js"></script>
     <title>绍兴粮网</title>
 </head>
 <body>
@@ -137,44 +138,52 @@
                     <span class="title statue2">今日均价</span>
                 </div>
                 <div class="main-box">
-                    <table class="table-box">
-                        <tr>
-                            <th width="88">品种</th>
-                            <th width="80">等级</th>
-                            <th width="84">产地</th>
-                            <th width="128">价格(元/公斤)</th>
-                        </tr>
-                        <tr>
-                            <td>东北长粒香</td>
-                            <td>一级</td>
-                            <td>东北</td>
-                            <td class="pri">2.8</td>
-                        </tr>
-                        <tr>
-                            <td>早籼米</td>
-                            <td>一级</td>
-                            <td>东北</td>
-                            <td class="pri">2.0</td>
-                        </tr>
-                        <tr>
-                            <td>粳糯米</td>
-                            <td>一级</td>
-                            <td>江苏</td>
-                            <td class="pri">3.05</td>
-                        </tr>
-                        <tr>
-                            <td>安徽粳米</td>
-                            <td>一级</td>
-                            <td>安徽</td>
-                            <td class="pri">2.25</td>
-                        </tr>
-                        <tr>
-                            <td>河南面粉</td>
-                            <td>一级</td>
-                            <td>河南</td>
-                            <td class="pri">1.76</td>
-                        </tr>
-                    </table>
+                    <div class="table-box">
+                        <div class="table-list">
+                            <div class="td-box top t1" width="88">品种</div>
+                            <div class="td-box top t2" width="80">等级</div>
+                            <div class="td-box top t3" width="84">产地</div>
+                            <div class="td-box top t4" width="128">价格(元/公斤)</div>
+                        </div>
+                        <div  class="table-body" id="scroll_wrap">
+                            <div class="table-list">
+                                <div class="td-box t1">东北长粒香</div>
+                                <div class="td-box t2">一级</div>
+                                <div class="td-box t3">东北</div>
+                                <div class="td-box t4 pri">2.8</div>
+                            </div>
+                            <div class="table-list">
+                                <div class="td-box t1">早籼米</div>
+                                <div class="td-box t2">一级</div>
+                                <div class="td-box t3">东北</div>
+                                <div class="td-box t4 pri">2.0</div>
+                            </div>
+                            <div class="table-list">
+                                <div class="td-box t1">粳糯米</div>
+                                <div class="td-box t2">一级</div>
+                                <div class="td-box t3">江苏</div>
+                                <div class="td-box t4 pri">3.05</div>
+                            </div>
+                            <div class="table-list">
+                                <div class="td-box t1">安徽粳米</div>
+                                <div class="td-box t2">一级</div>
+                                <div class="td-box t3">安徽</div>
+                                <div class="td-box t4 pri">2.35</div>
+                            </div>
+                            <div class="table-list">
+                                <div class="td-box t1">河南面粉</div>
+                                <div class="td-box t2">一级</div>
+                                <div class="td-box t3">河南</div>
+                                <div class="td-box t4 pri">1.76</div>
+                            </div>
+                            <div class="table-list">
+                                <div class="td-box t1">河南面粉</div>
+                                <div class="td-box t2">一级</div>
+                                <div class="td-box t3">河南</div>
+                                <div class="td-box t4 pri">1.76</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="list-box">
@@ -453,6 +462,10 @@
 <script type="text/javascript" src="js/jquery.SuperSlide.2.1.2.js"></script>
 <script type="text/javascript">
     jQuery(".slide-box").slide({autoPlay:true,effect:"leftLoop",delayTime:700});
+    $(function () {
+        var scrollli = new ScrollText("scroll_wrap",true,40,true);
+        scrollli.LineHeight = 35;
+    });
 </script>
 </body>
 </html>

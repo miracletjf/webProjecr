@@ -81,7 +81,7 @@ td,
   font-size: 15px;
   /*line-height: 1em;*/
   font-family: "微软雅黑";
-  color: #000000;
+  color: #000;
   vertical-align: baseline;
   -webkit-tap-highlight-color: transparent;
 }
@@ -724,29 +724,47 @@ input::-webkit-input-placeholder {
 .index-wrap .wrap-box .list-box .main-box .list-item:hover .text {
   color: #007840;
 }
-.index-wrap .wrap-box .list-box .main-box .table-box tr {
+.index-wrap .wrap-box .list-box .main-box .table-box {
+  border: solid 1px #ccc;
+}
+.index-wrap .wrap-box .list-box .main-box .table-box .table-body {
+  display: block;
+  height: 175px;
+  overflow: hidden;
+}
+.index-wrap .wrap-box .list-box .main-box .table-box .table-list {
   line-height: 35px;
   text-align: center;
+  font-size: 0;
+  border-bottom: solid 1px #ccc;
 }
-.index-wrap .wrap-box .list-box .main-box .table-box tr:nth-child(2n-1) {
+.index-wrap .wrap-box .list-box .main-box .table-box .table-list:nth-child(2n-1) {
   background: #f6f6f6;
 }
-.index-wrap .wrap-box .list-box .main-box .table-box tr th {
+.index-wrap .wrap-box .list-box .main-box .table-box .table-list .td-box {
+  display: inline-block;
   vertical-align: middle;
-  line-height: 20px;
   height: 35px;
-  font-size: 12px;
-  border: solid 1px #ccc;
+  font-size: 13px;
+  border-right: solid 1px #ccc;
+}
+.index-wrap .wrap-box .list-box .main-box .table-box .table-list .td-box.top {
   background: #f1f1f1;
 }
-.index-wrap .wrap-box .list-box .main-box .table-box tr td {
-  vertical-align: middle;
-  height: 35px;
-  line-height: 20px;
-  font-size: 13px;
-  border: solid 1px #ccc;
+.index-wrap .wrap-box .list-box .main-box .table-box .table-list .td-box.t1 {
+  width: 88px;
 }
-.index-wrap .wrap-box .list-box .main-box .table-box tr td.pri {
+.index-wrap .wrap-box .list-box .main-box .table-box .table-list .td-box.t2 {
+  width: 80px;
+}
+.index-wrap .wrap-box .list-box .main-box .table-box .table-list .td-box.t3 {
+  width: 84px;
+}
+.index-wrap .wrap-box .list-box .main-box .table-box .table-list .td-box.t4 {
+  width: 126px;
+  border: none;
+}
+.index-wrap .wrap-box .list-box .main-box .table-box .table-list .td-box.pri {
   color: #ff0000;
 }
 .index-wrap .img-wrap img {
@@ -884,6 +902,173 @@ input::-webkit-input-placeholder {
   color: #fff;
 }
 .page-list .main-box .list-wrap .page-num-box .select-box {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 30px;
+  font-size: 14px;
+}
+/*endregion*/
+/*region pageSearch 搜索页*/
+.page-search .main-box .menu-box {
+  width: 260px;
+  border: solid 1px #ccc;
+}
+.page-search .main-box .menu-box .menu-title {
+  padding: 20px;
+  display: block;
+  line-height: 35px;
+  background: #007840;
+  text-align: center;
+  color: #fff;
+  font-size: 20px;
+}
+.page-search .main-box .menu-box .menu-list-box {
+  background: #f6f6f6;
+  padding: 15px 20px;
+}
+.page-search .main-box .menu-box .menu-list-box .list-item {
+  margin-bottom: 16px;
+  line-height: 30px;
+}
+.page-search .main-box .menu-box .menu-list-box .list-item .text {
+  margin-bottom: 5px;
+  padding: 0 5px;
+  display: block;
+  text-align: left;
+  font-size: 15px;
+  color: #333;
+}
+.page-search .main-box .menu-box .menu-list-box .list-item .ipt-box {
+  position: relative;
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 8px;
+}
+.page-search .main-box .menu-box .menu-list-box .list-item .ipt-box .ipt {
+  display: block;
+  padding: 0 5px;
+  width: 100%;
+  height: 30px;
+  line-height: 30px;
+  border: solid 1px #ccc;
+  background: #fff;
+}
+.page-search .main-box .menu-box .menu-list-box .list-item .ipt-box.date {
+  padding-left: 35px;
+}
+.page-search .main-box .menu-box .menu-list-box .list-item .ipt-box.date .date-text {
+  position: absolute;
+  left: 5px;
+  top: 0;
+  right: 0;
+  width: 30px;
+  line-height: 30px;
+  color: #333;
+}
+.page-search .main-box .menu-box .menu-list-box .list-item .search-btn {
+  display: block;
+  margin: 10px auto;
+  margin-top: 30px;
+  width: 110px;
+  height: 34px;
+  line-height: 34px;
+  font-size: 16px;
+  color: #fff;
+  background: #d78700;
+  cursor: pointer;
+  text-align: center;
+}
+.page-search .main-box .menu-box .menu-list-box .list-item .search-btn:hover {
+  background: #ffa40b;
+}
+.page-search .list-wrap {
+  width: 880px;
+}
+.page-search .list-wrap .title {
+  display: block;
+  padding: 10px 15px;
+  line-height: 27px;
+  background: #f5f5f5;
+}
+.page-search .list-wrap .title:before {
+  content: "";
+  margin-right: 10px;
+  display: inline-block;
+  vertical-align: middle;
+  background: #d78700;
+  width: 5px;
+  height: 23px;
+}
+.page-search .list-wrap .title .text {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 23px;
+  font-weight: bold;
+  color: #d78700;
+}
+.page-search .list-wrap .list-box {
+  padding: 30px 10px;
+}
+.page-search .list-wrap .list-box .list-item {
+  position: relative;
+  padding: 10px 0;
+  padding-right: 100px;
+  line-height: 30px;
+  border-bottom: dashed 1px #ddd;
+}
+.page-search .list-wrap .list-box .list-item .text {
+  display: block;
+  line-height: 30px;
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.page-search .list-wrap .list-box .list-item .date {
+  position: absolute;
+  width: 100px;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  line-height: 50px;
+  font-size: 14px;
+  text-align: right;
+  color: #888;
+}
+.page-search .list-wrap .page-num-box {
+  text-align: center;
+  line-height: 30px;
+  margin: 30px 0;
+}
+.page-search .list-wrap .page-num-box .text {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 15px;
+  margin: 0 2px;
+}
+.page-search .list-wrap .page-num-box .btn-num {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 10px;
+  margin: 0 3px;
+  border: solid 1px #ddd;
+  font-size: 15px;
+  cursor: pointer;
+}
+.page-search .list-wrap .page-num-box .btn-num.disable {
+  cursor: not-allowed;
+  background: #ddd;
+}
+.page-search .list-wrap .page-num-box .btn-num.disable:hover {
+  color: #000;
+  background: #ddd;
+}
+.page-search .list-wrap .page-num-box .btn-num.active,
+.page-search .list-wrap .page-num-box .btn-num:hover {
+  background: #007840;
+  color: #fff;
+}
+.page-search .list-wrap .page-num-box .select-box {
   display: inline-block;
   vertical-align: middle;
   line-height: 30px;

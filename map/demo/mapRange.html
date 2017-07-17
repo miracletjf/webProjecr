@@ -5,11 +5,10 @@
     <meta name="viewport" content="width=device-width" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title></title>
+
     <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=A4749739227af1618f7b0d1b588c0e85"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/library/AreaRestriction/1.2/src/AreaRestriction_min.js"></script>
-    <script type="text/javascript" src="js/searchWindow.js"></script>
-    <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
 
     <style type="text/css">
         html {
@@ -25,63 +24,6 @@
         #container {
             height: 100%;
         }
-
-        /*region 信息化窗口*/
-        .clear-float:after {
-            content: '';
-            display: block;
-            clear: both;
-        }
-        .float-l {
-            float: left;
-        }
-        .float-r {
-            float: right;
-        }
-        .info-box {
-            width: 320px;
-        }
-        .info-box .info-title {
-            display: block;
-            padding: 0 10px;
-            line-height: 33px;
-            font-size: 15px;
-            font-weight: bold;
-        }
-        .info-box .info-list {
-            line-height: 21px;
-            padding: 4px 6px;
-        }
-        .info-box .info-list:nth-child(2n) {
-            background: #f5f5f5;
-        }
-        .info-box .info-list .key {
-            display: block;
-            width: 100px;
-            font-size: 14px;
-        }
-        .info-box .info-list .value {
-            display: block;
-            width: 200px;
-            font-size: 13px;
-            color: #333;
-            max-height: 126px;
-            overflow: auto;
-        }
-        .info-box .info-bottom {
-            border-top: solid 1px #eee;
-            text-align: center;
-            height: 43px;
-        }
-        .info-box .info-bottom .nav-btn {
-            display: inline-block;
-            vertical-align: middle;
-            margin: 4px 10px;
-        }
-        .info-box .info-bottom .nav-btn img {
-            display: block;
-        }
-        /*endregion*/
     </style>
 </head>
 
@@ -94,13 +36,7 @@
     //提示：下面的代码用jquery，所以如果有不能运行的情况请引用后尝试
     //百度地图api container对应前端div名称 前端要引用2.0版本的百度地图api
     //需引用api.map.baidu.com/library/AreaRestriction/1.2/src/AreaRestriction_min.js
-    var map = new BMap.Map("container", { enableMapClick: false ,minZoom:8,maxZoom:16}); // 创建地图实例，禁止点击地图底图
-    map.enableScrollWheelZoom();
-    var data_info = [{pointX:112.919784,title: "库点TEST1",pointY:28.234457,name:"王大锤",address:"地址：北京市东城区王府井大街88号乐天银泰百货八层",index:0},
-        {pointX:112.910586,pointY:28.182507,title:"库点TEST2",name:"李工",address:"地址：北京市东城区东华门大街",index:1},
-        {pointX:113.011771,pointY:28.17945,title:"库点TEST3",name:"刘成师",address:"地址：北京市东城区正义路甲5号",index:2}];
-
-
+    var map = new BMap.Map("container", { enableMapClick: false }); // 创建地图实例，禁止点击地图底图
     //设置样式
     map.setMapStyle({
         styleJson: [
@@ -115,12 +51,26 @@
         ]
     });
 
-
+    map.disableDragging();//禁止拖动
+    map.disableDoubleClickZoom();//禁止双击缩放
     var blist = [];
     var districtLoading = 0;
 
     function getBoundary() {
-        addDistrict("湖南");
+
+
+        addDistrict("广州越秀区");
+        addDistrict("广州从化区");
+        addDistrict("广州荔湾区");
+        addDistrict("广州天河区");
+        addDistrict("广州白云区");
+        addDistrict("广州黄埔区");
+        addDistrict("广州花都区");
+        addDistrict("广州番禺区");
+        addDistrict("广州南沙区");
+        addDistrict("广州海珠区");
+        addDistrict("广州增城");
+
     }
 
     /**
@@ -155,66 +105,23 @@
      * 各种鼠标事件绑定
      */
     function click(evt) {
+        alert(evt.target.name);
     }
 
     function mouseover(evt) {
-
+        evt.target.label.setZIndex(99);
+        evt.target.label.setPosition(evt.point);
+        evt.target.label.show();
     }
 
     function mousemove(evt) {
-
+        evt.target.label.setPosition(evt.point);
     }
 
     function mouseout(evt) {
-
+        evt.target.label.hide();
     }
 
-    //创建标记点
-    function creatMarkerInfo(obj,marker) {
-        var content = '<div class="info-box">'+
-            '<div class="info-list clear-float">'+
-            '<div class="key float-l">联系人</div>'+
-            '<div class="value float-r">'+obj.name+'</div>'+
-            '</div>'+
-            '<div class="info-list clear-float">'+
-            '<div class="key float-l">联系方式</div>'+
-            '<div class="value float-r">'+obj.name+'</div>'+
-            '</div>'+
-            '<div class="info-list clear-float">'+
-            '<div class="key float-l">地址</div>'+
-            '<div class="value float-r">'+obj.address+'</div>'+
-            '</div>'+
-            '<div class="info-list clear-float">'+
-            '<div class="key float-l">库存信息</div>'+
-            '<div class="value float-r">'+obj.address+'</div>'+
-            '</div>'+
-            '<div class="info-bottom">'+
-            '<a href="" class="nav-btn">'+
-            '<img src="images/3d.png" alt="">'+
-            '</a>'+
-            '<a href="" class="nav-btn">'+
-            '<img src="images/video.png" alt="">'+
-            '</a></div></div>';
-        //创建检索信息窗口对象
-        var searchInfoWindow = null;
-        searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
-            title  : obj.title,      //标题
-            panel  : "panel",         //检索结果面板
-            enableAutoPan : true,     //自动平移
-            enableSendToPhone: false, //是否显示发送到手机按钮
-            searchTypes   :[
-                BMAPLIB_TAB_SEARCH,   //周边检索
-                BMAPLIB_TAB_TO_HERE,  //到这里去
-                BMAPLIB_TAB_FROM_HERE //从这里出发
-            ]
-        });
-        marker.addEventListener("click", function(e){
-            searchInfoWindow.open(marker);
-        });
-        map.addOverlay(marker); //在地图中添加marker
-    }
-
-    //划出区域
     function drawBoundary() {
         //包含所有区域的点数组
         var pointArray = [];
@@ -251,6 +158,10 @@
             ply.addEventListener("mousemove", mousemove);
             map.addOverlay(ply);
 
+            //添加名称标签层
+            var centerlabel = new BMap.Label(blist[i].name, { offset: new BMap.Size(0, 0) });
+            centerlabel.setPosition(ply.getBounds().getCenter());
+            map.addOverlay(centerlabel);
 
             //将点增加到视野范围内
             var path = ply.getPath();
@@ -268,22 +179,6 @@
         //添加遮蔽层
         var plyall = new BMap.Polygon(pArray, { strokeOpacity: 0.0000001, strokeColor: "#000000", strokeWeight: 0.00001, fillColor: "#ffffff", fillOpacity: 0.9 }); //建立多边形覆盖物
         map.addOverlay(plyall);
-
-        for(var j =0;j<data_info.length;j++){
-            var myIcon = new BMap.Icon("images/markermy.png", new BMap.Size(23, 25), {
-                // 指定定位位置。
-                // 当标注显示在地图上时，其所指向的地理位置距离图标左上
-                // 角各偏移10像素和25像素。您可以看到在本例中该位置即是
-                // 图标中央下端的尖角位置。
-                offset: new BMap.Size(10, 25),
-                // 设置图片偏移。
-                // 当您需要从一幅较大的图片中截取某部分作为标注图标时，您
-                // 需要指定大图的偏移位置，此做法与css sprites技术类似。
-                imageOffset: new BMap.Size(0, 0 - data_info[j].index * 25)   // 设置图片偏移
-            });
-            var marker = new BMap.Marker(new BMap.Point(data_info[j].pointX,data_info[j].pointY),{icon:myIcon}); //创建marker对象
-            creatMarkerInfo(data_info[j],marker);
-        }
     }
 
     setTimeout(function () {

@@ -14,44 +14,14 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.6827393">
+    <splitter split-orientation="horizontal" split-proportion="0.5548567">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="morePointInfo.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/morePointInfo.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="817">
-                  <caret line="43" column="5" lean-forward="false" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="mapBesic.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/mapBesic.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2223">
-                  <caret line="117" column="62" lean-forward="false" selection-start-line="117" selection-start-column="62" selection-end-line="117" selection-end-column="62" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="markerIcon.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/markerIcon.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="437">
-                  <caret line="23" column="72" lean-forward="false" selection-start-line="23" selection-start-column="72" selection-end-line="23" selection-end-column="72" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="mapShowDemo2.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/mapShowDemo2.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2242">
-                  <caret line="118" column="48" lean-forward="true" selection-start-line="118" selection-start-column="48" selection-end-line="118" selection-end-column="48" />
+                <state relative-caret-position="1406">
+                  <caret line="74" column="9" lean-forward="false" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
                   <folding />
                 </state>
               </provider>
@@ -60,81 +30,89 @@
           <file leaf-file-name="mapShowDemo.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/mapShowDemo.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="551">
-                  <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="84" selection-end-column="21" />
+                <state relative-caret-position="836">
+                  <caret line="44" column="31" lean-forward="true" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="mapShowDemo3.html" pinned="false" current-in-tab="true">
+          <file leaf-file-name="mapShowDemo3.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/mapShowDemo3.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="213">
-                  <caret line="120" column="63" lean-forward="true" selection-start-line="120" selection-start-column="63" selection-end-line="120" selection-end-column="63" />
+                <state relative-caret-position="1881">
+                  <caret line="99" column="4" lean-forward="true" selection-start-line="99" selection-start-column="4" selection-end-line="99" selection-end-column="32" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="mapShowDemo2.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/mapShowDemo2.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1957">
+                  <caret line="103" column="27" lean-forward="true" selection-start-line="103" selection-start-column="27" selection-end-line="103" selection-end-column="27" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/index.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="228">
+                  <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="infoBox.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/infoBox.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="399">
+                  <caret line="21" column="47" lean-forward="true" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="infoWindows.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/infoWindows.html">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="2109">
+                  <caret line="111" column="56" lean-forward="false" selection-start-line="111" selection-start-column="56" selection-end-line="111" selection-end-column="56" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
           <file leaf-file-name="mapRange.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/mapRange.html">
+            <entry file="file://$PROJECT_DIR$/demo/mapRange.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="202">
-                  <caret line="59" column="26" lean-forward="true" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
+                <state relative-caret-position="152">
+                  <caret line="8" column="70" lean-forward="true" selection-start-line="8" selection-start-column="70" selection-end-line="8" selection-end-column="70" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="jquery-1.8.3.min.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/jquery-1.8.3.min.js">
+          <file leaf-file-name="drawMarker.html" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/demo/drawMarker.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="19">
-                  <caret line="1" column="1236" lean-forward="false" selection-start-line="1" selection-start-column="1236" selection-end-line="1" selection-end-column="1236" />
-                  <folding>
-                    <element signature="n#!!doc" expanded="true" />
-                  </folding>
+                <state relative-caret-position="1121">
+                  <caret line="59" column="54" lean-forward="false" selection-start-line="59" selection-start-column="54" selection-end-line="59" selection-end-column="54" />
+                  <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="searchWindow.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/js/searchWindow.js">
+          <file leaf-file-name="mapRange.html" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/mapRange.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="7163">
-                  <caret line="377" column="52" lean-forward="true" selection-start-line="377" selection-start-column="52" selection-end-line="377" selection-end-column="52" />
-                  <folding>
-                    <marker date="1499913437111" expanded="true" signature="19123:19137" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="19272:19286" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="19426:19440" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="19708:19725" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="19878:19895" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="20072:20084" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="20192:20209" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="20424:20441" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="20821:20832" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="40049:40060" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="40241:40288" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="40382:40411" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="42145:42158" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="42254:42269" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="42326:42341" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="42591:42604" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="42886:42921" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="43360:43432" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="43547:43612" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="43836:43851" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="43990:44001" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="44152:44165" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="44304:44317" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="44372:44385" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="44403:44421" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="44716:44728" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="44787:44806" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="45037:45050" ph="..." />
-                    <marker date="1499913437111" expanded="true" signature="57280:57296" ph="..." />
-                  </folding>
+                <state relative-caret-position="227">
+                  <caret line="89" column="0" lean-forward="true" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -143,21 +121,21 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="StyleMap.less" pinned="false" current-in-tab="false">
+          <file leaf-file-name="StyleMap.less" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/css/StyleMap.less">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="2071">
-                  <caret line="109" column="25" lean-forward="false" selection-start-line="109" selection-start-column="25" selection-end-line="109" selection-end-column="25" />
+                <state relative-caret-position="151">
+                  <caret line="83" column="14" lean-forward="true" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="14" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="StyleMap.css" pinned="false" current-in-tab="true">
+          <file leaf-file-name="StyleMap.css" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/css/StyleMap.css">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="170">
-                  <caret line="189" column="1" lean-forward="true" selection-start-line="189" selection-start-column="1" selection-end-line="189" selection-end-column="1" />
+                <state relative-caret-position="4047">
+                  <caret line="213" column="14" lean-forward="true" selection-start-line="213" selection-start-column="14" selection-end-line="213" selection-end-column="14" />
                   <folding />
                 </state>
               </provider>
@@ -206,8 +184,9 @@
         <option value="$PROJECT_DIR$/css/searchWindow.css" />
         <option value="$PROJECT_DIR$/js/searchWindow.js" />
         <option value="$PROJECT_DIR$/mapBesic.html" />
-        <option value="$PROJECT_DIR$/mapShowDemo3.html" />
         <option value="$PROJECT_DIR$/js/baidumap.js" />
+        <option value="$PROJECT_DIR$/mapShowDemo3.html" />
+        <option value="$PROJECT_DIR$/demo/mapRange.html" />
         <option value="$PROJECT_DIR$/mapRange.html" />
       </list>
     </option>
@@ -238,7 +217,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -289,6 +268,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="demo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="map" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="map" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -313,7 +306,7 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -323,6 +316,9 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\webProject\map\demo" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="E:\webProject\map" />
       <recent name="E:\webProject\map\images" />
@@ -423,18 +419,21 @@
       <workItem from="1499738253394" duration="17624000" />
       <workItem from="1499820908672" duration="19767000" />
       <workItem from="1499906741426" duration="10283000" />
-      <workItem from="1499995351788" duration="4738000" />
+      <workItem from="1499995351788" duration="5978000" />
+      <workItem from="1500011928638" duration="18000" />
+      <workItem from="1500015075484" duration="6439000" />
+      <workItem from="1500272983461" duration="1000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="54805000" />
+    <option name="totallyTimeSpent" value="62503000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="0" width="1924" height="1056" extended-state="0" />
+    <frame x="-7" y="0" width="1924" height="1056" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2497349" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32980973" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -463,16 +462,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/js/jquery-1.8.3.min.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="1236" lean-forward="false" selection-start-line="1" selection-start-column="1236" selection-end-line="1" selection-end-column="1236" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/js/searchWindow.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="7163">
@@ -549,33 +538,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/morePointInfo.html">
+    <entry file="file://$PROJECT_DIR$/demo/morePointInfo.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="817">
           <caret line="43" column="5" lean-forward="true" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/drawMarker.html">
+    <entry file="file://$PROJECT_DIR$/demo/drawMarker.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1121">
           <caret line="59" column="54" lean-forward="true" selection-start-line="59" selection-start-column="54" selection-end-line="59" selection-end-column="54" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/infoWindowImg.html">
+    <entry file="file://$PROJECT_DIR$/demo/infoWindowImg.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2052">
           <caret line="108" column="33" lean-forward="true" selection-start-line="108" selection-start-column="33" selection-end-line="108" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/markerIcon.html">
+    <entry file="file://$PROJECT_DIR$/demo/markerIcon.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
           <caret line="23" column="72" lean-forward="true" selection-start-line="23" selection-start-column="72" selection-end-line="23" selection-end-column="72" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -634,7 +621,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/morePoint.html">
+    <entry file="file://$PROJECT_DIR$/demo/morePoint.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="665">
           <caret line="35" column="25" lean-forward="false" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="25" />
@@ -648,15 +635,14 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/morePointInfo.html">
+    <entry file="file://$PROJECT_DIR$/demo/morePointInfo.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="798">
           <caret line="42" column="10" lean-forward="true" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/drawMarker.html">
+    <entry file="file://$PROJECT_DIR$/demo/drawMarker.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
           <caret line="18" column="29" lean-forward="true" selection-start-line="18" selection-start-column="29" selection-end-line="18" selection-end-column="29" />
@@ -671,7 +657,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mapData.html">
+    <entry file="file://$PROJECT_DIR$/demo/mapData.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2546">
           <caret line="134" column="32" lean-forward="true" selection-start-line="134" selection-start-column="32" selection-end-line="134" selection-end-column="32" />
@@ -708,7 +694,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mapData.html">
+    <entry file="file://$PROJECT_DIR$/demo/mapData.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1634">
           <caret line="86" column="87" lean-forward="false" selection-start-line="86" selection-start-column="55" selection-end-line="86" selection-end-column="87" />
@@ -730,92 +716,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/StyleMap.less">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2071">
-          <caret line="109" column="25" lean-forward="false" selection-start-line="109" selection-start-column="25" selection-end-line="109" selection-end-column="25" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mapData.html">
+    <entry file="file://$PROJECT_DIR$/demo/mapData.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-533">
           <caret line="125" column="44" lean-forward="true" selection-start-line="125" selection-start-column="44" selection-end-line="125" selection-end-column="44" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/infoBox.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="51" lean-forward="false" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/morePoint.html">
+    <entry file="file://$PROJECT_DIR$/demo/morePoint.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="190">
           <caret line="10" column="110" lean-forward="false" selection-start-line="10" selection-start-column="78" selection-end-line="10" selection-end-column="110" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/infoWindowImg.html">
+    <entry file="file://$PROJECT_DIR$/demo/infoWindowImg.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2052">
           <caret line="108" column="33" lean-forward="true" selection-start-line="108" selection-start-column="33" selection-end-line="108" selection-end-column="33" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/drawMarker.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1121">
-          <caret line="59" column="54" lean-forward="false" selection-start-line="59" selection-start-column="54" selection-end-line="59" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/infoWindows.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2679">
-          <caret line="141" column="49" lean-forward="false" selection-start-line="141" selection-start-column="49" selection-end-line="141" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mapShowDemo2.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2242">
-          <caret line="118" column="48" lean-forward="true" selection-start-line="118" selection-start-column="48" selection-end-line="118" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/markerIcon.html">
+    <entry file="file://$PROJECT_DIR$/demo/markerIcon.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="437">
           <caret line="23" column="72" lean-forward="false" selection-start-line="23" selection-start-column="72" selection-end-line="23" selection-end-column="72" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/morePointInfo.html">
+    <entry file="file://$PROJECT_DIR$/demo/morePointInfo.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="817">
           <caret line="43" column="5" lean-forward="false" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mapShowDemo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="84" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -823,9 +755,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="19">
           <caret line="1" column="1236" lean-forward="false" selection-start-line="1" selection-start-column="1236" selection-end-line="1" selection-end-column="1236" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -867,14 +796,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mapBesic.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2223">
-          <caret line="117" column="62" lean-forward="false" selection-start-line="117" selection-start-column="62" selection-end-line="117" selection-end-column="62" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/searchWindow.css" />
     <entry file="file://$PROJECT_DIR$/js/baidumap.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -885,24 +806,96 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/css/StyleMap.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="189" column="1" lean-forward="true" selection-start-line="189" selection-start-column="1" selection-end-line="189" selection-end-column="1" />
+        <state relative-caret-position="4047">
+          <caret line="213" column="14" lean-forward="true" selection-start-line="213" selection-start-column="14" selection-end-line="213" selection-end-column="14" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/mapRange.html">
+    <entry file="file://$PROJECT_DIR$/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="202">
-          <caret line="59" column="26" lean-forward="true" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
+        <state relative-caret-position="228">
+          <caret line="12" column="0" lean-forward="true" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infoBox.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="47" lean-forward="true" selection-start-line="21" selection-start-column="47" selection-end-line="21" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/infoWindows.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2109">
+          <caret line="111" column="56" lean-forward="false" selection-start-line="111" selection-start-column="56" selection-end-line="111" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/StyleMap.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="151">
+          <caret line="83" column="14" lean-forward="true" selection-start-line="83" selection-start-column="14" selection-end-line="83" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mapShowDemo2.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1957">
+          <caret line="103" column="27" lean-forward="true" selection-start-line="103" selection-start-column="27" selection-end-line="103" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/drawMarker.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1121">
+          <caret line="59" column="54" lean-forward="false" selection-start-line="59" selection-start-column="54" selection-end-line="59" selection-end-column="54" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/mapRange.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="8" column="70" lean-forward="true" selection-start-line="8" selection-start-column="70" selection-end-line="8" selection-end-column="70" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mapShowDemo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="836">
+          <caret line="44" column="31" lean-forward="true" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/mapShowDemo3.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="120" column="63" lean-forward="true" selection-start-line="120" selection-start-column="63" selection-end-line="120" selection-end-column="63" />
+        <state relative-caret-position="1881">
+          <caret line="99" column="4" lean-forward="true" selection-start-line="99" selection-start-column="4" selection-end-line="99" selection-end-column="32" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mapBesic.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1406">
+          <caret line="74" column="9" lean-forward="false" selection-start-line="74" selection-start-column="9" selection-end-line="74" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mapRange.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="89" column="0" lean-forward="true" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
           <folding />
         </state>
       </provider>
