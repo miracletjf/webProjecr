@@ -219,12 +219,12 @@ input::-webkit-input-placeholder {
   border-top: solid 1px #eee;
   text-align: center;
 }
-.info-box .info-bottom .nav-btn {
+.info-box .info-bottom .nav- {
   display: inline-block;
   vertical-align: middle;
   margin: 4px 10px;
 }
-.info-box .info-bottom .nav-btn img {
+.info-box .info-bottom .nav- img {
   display: block;
 }
 /*endregion*/

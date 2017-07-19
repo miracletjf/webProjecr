@@ -3,20 +3,43 @@
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
     <style type="text/css">
-        body, html,#allmap {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
-        .btn {
+        body, html {width: 100%;height: 100%;overflow: hidden;margin:0;font-family:"微软雅黑";}
+        .map-wrap {
+            margin: 0 auto;
+            display: block;
+            height: 900px;
+            width: 1200px;
+            overflow: hidden;
+        }
+        #allmap {
+            display: block;
+            height: 960px;
+            width: 1200px;
+        }
+        .btn-box {
             position: fixed;
             display: inline-block;
-            line-height: 40px;
-            width: 50px;
+            line-height: 34px;
             z-index: 100;
             bottom: 10px;
             left: 10px;
-            font-size: 16px;
+
+        }
+        .btn {
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 6px;
+            padding: 0 10px;
+            font-size: 14px;
             border: solid 1px #ddd;
             border-radius: 3px;
             text-align: center;
             background: #fff;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background: #007840;
+            color: #fff;
         }
         /*region 信息化窗口*/
         .clear-float:after {
@@ -82,8 +105,13 @@
     <title>浏览器定位</title>
 </head>
 <body>
-<div id="allmap"></div>
-<span class="btn">点击</span>
+<div class="map-wrap">
+    <div id="allmap"></div>
+</div>
+<div class="btn-box">
+    <span class="btn" id="dis_btn">禁用点击</span>
+    <span class="btn" id="get_btn">获取所有点</span>
+</div>
 </body>
 </html>
 <script type="text/javascript">
@@ -91,11 +119,21 @@
     var map = new BMap.Map("allmap");
     var point = new BMap.Point(116.331398,39.897445);
     map.centerAndZoom(point,12);
+    var i = 0;
 
     map.addEventListener("click", addM);
-    $('.btn').click(function () {
+    $('#dis_btn').click(function () {
         map.removeEventListener("click",addM);
-        alert(123);
+    });
+    $('#get_btn').click(function () {
+        var allOverlay = map.getOverlays();
+        for(var k=0;k<allOverlay.length;k++){
+            try{
+                if(allOverlay[k].overlayType() == "Marker"){
+                    console.log(allOverlay[k].getPosition());
+                }
+            }catch(error){}
+        }
     });
 
     function addM(e){
@@ -106,7 +144,7 @@
     function creatMarkerInfo(marker) {
         var content = '<div class="info-box">'+
             '<div class="info-list clear-float">'+
-            '<div class="key float-l">联系人</div>'+
+            '<div class="key float-l">联系人'+i+'</div>'+
             '<div class="value float-r">王大锤</div>'+
             '</div>'+
             '<div class="info-list clear-float">'+
@@ -123,13 +161,14 @@
             '</div>'+
             '<div class="info-bottom">'+
             '<a href="" class="nav-btn">'+
-            '<img src="images/3d.png" alt="">'+
+            '<img src="images/3d.png" onclick="" alt="">'+
             '</a>'+
             '<a href="" class="nav-btn">'+
             '<img src="images/video.png" alt="">'+
             '</a></div></div>';
         //创建检索信息窗口对象
         var searchInfoWindow = null;
+        i++;
         searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
             title  : "信息窗口",      //标题
             panel  : "panel",         //检索结果面板
@@ -141,17 +180,24 @@
                 //   BMAPLIB_TAB_FROM_HERE //从这里出发
             ]
         });
+        if(marker.overlayType == undefined){
+            marker.overlayType = function () {
+                return "Marker";
+            };
+        }
+
         marker.addEventListener("click", function(e){
             searchInfoWindow.open(marker);
+            e.domEvent.stopPropagation();
         });
         map.addOverlay(marker); //在地图中添加marker
     }
 
     function addMarker(point, index){  // 创建图标对象
         var myIcon = new BMap.Icon("images/markermy.png", new BMap.Size(23, 25), {
-// 指定定位位置。
-// 当标注显示在地图上时，其所指向的地理位置距离图标左上
-// 角各偏移10像素和25像素。您可以看到在本例中该位置即是
+        // 指定定位位置。
+        // 当标注显示在地图上时，其所指向的地理位置距离图标左上
+        // 角各偏移10像素和25像素。您可以看到在本例中该位置即是
             // 图标中央下端的尖角位置。
             offset: new BMap.Size(10, 25),
             // 设置图片偏移。
