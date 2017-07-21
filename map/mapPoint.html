@@ -56,6 +56,17 @@
         .info-box {
             width: 320px;
         }
+        .info-box .connect-box{
+            display: block;
+            margin: 0 auto;
+            width: 120px;
+            line-height: 34px;
+            color: #fff;
+            background: #007840;
+            border-radius: 3px;
+            text-align: center;
+            cursor: pointer;
+        }
         .info-box .info-title {
             display: block;
             padding: 0 10px;
@@ -80,7 +91,7 @@
             width: 200px;
             font-size: 13px;
             color: #333;
-            max-height: 126px;
+
             overflow: auto;
         }
         .info-box .info-bottom {
@@ -102,7 +113,7 @@
     <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.js"></script>
     <link rel="stylesheet" href="http://api.map.baidu.com/library/SearchInfoWindow/1.5/src/SearchInfoWindow_min.css" />
-    <title>浏览器定位</title>
+    <title>描点</title>
 </head>
 <body>
 <div class="map-wrap">
@@ -119,11 +130,14 @@
     var map = new BMap.Map("allmap");
     var point = new BMap.Point(116.331398,39.897445);
     map.centerAndZoom(point,12);
-    var i = 0;
+    var Mid = 0;
+    var searchInfoWindows = [];
+    var markers = [];
 
     map.addEventListener("click", addM);
     $('#dis_btn').click(function () {
-        map.removeEventListener("click",addM);
+//        map.removeEventListener("click",addM);
+        searchInfoWindows[0]._content = "空白";
     });
     $('#get_btn').click(function () {
         var allOverlay = map.getOverlays();
@@ -141,10 +155,15 @@
         addMarker(poi,0);
     }
 
-    function creatMarkerInfo(marker) {
-        var content = '<div class="info-box">'+
+    function creatMarkerInfo(marker,obj) {
+        var index = Mid;
+
+        if(obj == null){
+
+        }
+/*        var content = '<div class="info-box">'+
             '<div class="info-list clear-float">'+
-            '<div class="key float-l">联系人'+i+'</div>'+
+            '<div class="key float-l">联系人'+Mid+'</div>'+
             '<div class="value float-r">王大锤</div>'+
             '</div>'+
             '<div class="info-list clear-float">'+
@@ -160,16 +179,17 @@
             '<div class="value float-r">铁锤县铁锤乡铁锤组铁锤俱乐部</div>'+
             '</div>'+
             '<div class="info-bottom">'+
-            '<a href="" class="nav-btn">'+
-            '<img src="images/3d.png" onclick="" alt="">'+
-            '</a>'+
-            '<a href="" class="nav-btn">'+
+            '<span class="nav-btn">'+
+            '<img src="images/3d.png" onclick="clearHtml(this)" alt="">'+
+            '</span>'+
+            '<span class="nav-btn">'+
             '<img src="images/video.png" alt="">'+
-            '</a></div></div>';
+            '</span></div></div>';*/
+        var content = '<div class="info-box">' +
+                '<span class="connect-box">关联</span>'+
+            '</div>';
         //创建检索信息窗口对象
-        var searchInfoWindow = null;
-        i++;
-        searchInfoWindow = new BMapLib.SearchInfoWindow(map, content, {
+        searchInfoWindows[Mid] = new BMapLib.SearchInfoWindow(map, content, {
             title  : "信息窗口",      //标题
             panel  : "panel",         //检索结果面板
             enableAutoPan : true,     //自动平移
@@ -185,12 +205,13 @@
                 return "Marker";
             };
         }
-
         marker.addEventListener("click", function(e){
-            searchInfoWindow.open(marker);
+            console.log(index);
+            searchInfoWindows[index].open(marker);
             e.domEvent.stopPropagation();
         });
         map.addOverlay(marker); //在地图中添加marker
+        Mid++;
     }
 
     function addMarker(point, index){  // 创建图标对象
@@ -206,8 +227,8 @@
             imageOffset: new BMap.Size(0, 0 - index * 25)   // 设置图片偏移
         });
 // 创建标注对象并添加到地图
-        var marker = new BMap.Marker(point, {icon: myIcon});
-        creatMarkerInfo(marker);
+        markers[Mid] = new BMap.Marker(point, {icon: myIcon});
+        creatMarkerInfo(markers[Mid]);
     }
 
 </script>

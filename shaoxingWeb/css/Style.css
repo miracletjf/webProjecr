@@ -201,6 +201,11 @@ input::-webkit-input-placeholder {
 .header .top-box .head-top-box .text.red {
   color: #ab1313;
 }
+.header .top-box .head-top-box .tq-box {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 0;
+}
 .header .top-box .head-top-box .ipt-box {
   display: inline-block;
   vertical-align: middle;
@@ -449,6 +454,70 @@ input::-webkit-input-placeholder {
 .brade-box .text:hover {
   color: #007840;
 }
+.page-num-box {
+  text-align: center;
+  line-height: 30px;
+  margin: 30px 0;
+}
+.page-num-box .text {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 15px;
+  margin: 0 2px;
+}
+.page-num-box .btn-num {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 0 10px;
+  margin: 0 3px;
+  border: solid 1px #ddd;
+  font-size: 15px;
+  cursor: pointer;
+}
+.page-num-box .btn-num.disable {
+  cursor: not-allowed;
+  background: #ddd;
+}
+.page-num-box .btn-num.disable:hover {
+  color: #000;
+  background: #ddd;
+}
+.page-num-box .btn-num.active,
+.page-num-box .btn-num:hover {
+  background: #007840;
+  color: #fff;
+}
+.page-num-box .page-jump-box {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 30px;
+  font-size: 14px;
+  margin-left: 10px;
+}
+.page-num-box .page-jump-box .ipt {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 2px;
+  width: 30px;
+  height: 32px;
+  padding: 0 6px;
+  border: solid 1px #ddd;
+  font-size: 14px;
+}
+.page-num-box .page-jump-box .ipt-btn {
+  display: inline-block;
+  vertical-align: middle;
+  font-size: 14px;
+  background: #f1f1f1;
+  border: solid 1px #ddd;
+  text-align: center;
+  width: 30px;
+  cursor: pointer;
+}
+.page-num-box .page-jump-box .ipt-btn:hover {
+  background: #007840;
+  color: #fff;
+}
 /*endregion*/
 /*region 首页 index-wrap*/
 .index-wrap .top-box {
@@ -686,6 +755,8 @@ input::-webkit-input-placeholder {
 }
 .index-wrap .wrap-box .list-box .main-box {
   padding-top: 10px;
+  height: 220px;
+  overflow: hidden;
 }
 .index-wrap .wrap-box .list-box .main-box .list-item {
   position: relative;
@@ -868,45 +939,6 @@ input::-webkit-input-placeholder {
   text-align: right;
   color: #888;
 }
-.page-list .main-box .list-wrap .page-num-box {
-  text-align: center;
-  line-height: 30px;
-  margin: 30px 0;
-}
-.page-list .main-box .list-wrap .page-num-box .text {
-  display: inline-block;
-  vertical-align: middle;
-  font-size: 15px;
-  margin: 0 2px;
-}
-.page-list .main-box .list-wrap .page-num-box .btn-num {
-  display: inline-block;
-  vertical-align: middle;
-  padding: 0 10px;
-  margin: 0 3px;
-  border: solid 1px #ddd;
-  font-size: 15px;
-  cursor: pointer;
-}
-.page-list .main-box .list-wrap .page-num-box .btn-num.disable {
-  cursor: not-allowed;
-  background: #ddd;
-}
-.page-list .main-box .list-wrap .page-num-box .btn-num.disable:hover {
-  color: #000;
-  background: #ddd;
-}
-.page-list .main-box .list-wrap .page-num-box .btn-num.active,
-.page-list .main-box .list-wrap .page-num-box .btn-num:hover {
-  background: #007840;
-  color: #fff;
-}
-.page-list .main-box .list-wrap .page-num-box .select-box {
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 30px;
-  font-size: 14px;
-}
 /*endregion*/
 /*region pageSearch 搜索页*/
 .page-search .main-box .menu-box {
@@ -1035,45 +1067,6 @@ input::-webkit-input-placeholder {
   text-align: right;
   color: #888;
 }
-.page-search .list-wrap .page-num-box {
-  text-align: center;
-  line-height: 30px;
-  margin: 30px 0;
-}
-.page-search .list-wrap .page-num-box .text {
-  display: inline-block;
-  vertical-align: middle;
-  font-size: 15px;
-  margin: 0 2px;
-}
-.page-search .list-wrap .page-num-box .btn-num {
-  display: inline-block;
-  vertical-align: middle;
-  padding: 0 10px;
-  margin: 0 3px;
-  border: solid 1px #ddd;
-  font-size: 15px;
-  cursor: pointer;
-}
-.page-search .list-wrap .page-num-box .btn-num.disable {
-  cursor: not-allowed;
-  background: #ddd;
-}
-.page-search .list-wrap .page-num-box .btn-num.disable:hover {
-  color: #000;
-  background: #ddd;
-}
-.page-search .list-wrap .page-num-box .btn-num.active,
-.page-search .list-wrap .page-num-box .btn-num:hover {
-  background: #007840;
-  color: #fff;
-}
-.page-search .list-wrap .page-num-box .select-box {
-  display: inline-block;
-  vertical-align: middle;
-  line-height: 30px;
-  font-size: 14px;
-}
 /*endregion*/
 /*region pageDetail 详情页*/
 .page-detail .detail-box {
@@ -1129,6 +1122,21 @@ input::-webkit-input-placeholder {
   cursor: pointer;
 }
 .page-detail .detail-box .btn-box .btn:hover {
+  color: #d78700;
+}
+.page-detail .detail-box .link-box {
+  display: block;
+  font-size: 14px;
+}
+.page-detail .detail-box .link-box a {
+  display: inline-block;
+  vertical-align: middle;
+  margin: 0 4px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+.page-detail .detail-box .link-box a:hover {
   color: #d78700;
 }
 /*endregion*/

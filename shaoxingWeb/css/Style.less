@@ -88,6 +88,11 @@
           color: #ab1313;
         }
       }
+      .tq-box {
+        display: inline-block;
+        vertical-align: middle;
+        line-height: 0;
+      }
       .ipt-box {
         display: inline-block;
         vertical-align: middle;
@@ -329,6 +334,7 @@
 /*endregion*/
 
 /*region 公用*/
+//面包屑
 .brade-box {
   display: block;
   padding: 10px 30px;
@@ -342,6 +348,70 @@
     cursor: pointer;
     &:hover {
       color: @mainColor;
+    }
+  }
+}
+//页码
+.page-num-box {
+  text-align: center;
+  line-height: 30px;
+  margin: 30px 0;
+  .text{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 15px;
+    margin: 0 2px;
+  }
+  .btn-num {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 10px;
+    margin: 0 3px;
+    border: solid 1px #ddd;
+    font-size: 15px;
+    cursor: pointer;
+    &.disable {
+      cursor: not-allowed;
+      background: #ddd;
+      &:hover {
+        color: #000;
+        background: #ddd;
+      }
+    }
+    &.active,&:hover {
+      background: @mainColor;
+      color: #fff;
+    }
+  }
+  .page-jump-box {
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 30px;
+    font-size: 14px;
+    margin-left: 10px;
+    .ipt {
+      display: inline-block;
+      vertical-align: middle;
+      margin: 0 2px;
+      width: 30px;
+      height: 32px;
+      padding: 0 6px;
+      border: solid 1px #ddd;
+      font-size: 14px;
+    }
+    .ipt-btn {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: 14px;
+      background: #f1f1f1;
+      border: solid 1px #ddd;
+      text-align: center;
+      width: 30px;
+      cursor: pointer;
+      &:hover {
+        background: @mainColor;
+        color:  #fff;
+      }
     }
   }
 }
@@ -590,6 +660,8 @@
       }
       .main-box {
         padding-top: 10px;
+        height: 220px;
+        overflow: hidden;
         .list-item {
           position: relative;
           display: block;
@@ -777,44 +849,6 @@
           }
         }
       }
-      .page-num-box {
-        text-align: center;
-        line-height: 30px;
-        margin: 30px 0;
-        .text{
-          display: inline-block;
-          vertical-align: middle;
-          font-size: 15px;
-          margin: 0 2px;
-        }
-        .btn-num {
-          display: inline-block;
-          vertical-align: middle;
-          padding: 0 10px;
-          margin: 0 3px;
-          border: solid 1px #ddd;
-          font-size: 15px;
-          cursor: pointer;
-          &.disable {
-            cursor: not-allowed;
-            background: #ddd;
-            &:hover {
-              color: #000;
-              background: #ddd;
-            }
-          }
-          &.active,&:hover {
-            background: @mainColor;
-            color: #fff;
-          }
-        }
-        .select-box {
-          display: inline-block;
-          vertical-align: middle;
-          line-height: 30px;
-          font-size: 14px;
-        }
-      }
     }
 
   }
@@ -948,44 +982,6 @@
           }
         }
       }
-      .page-num-box {
-        text-align: center;
-        line-height: 30px;
-        margin: 30px 0;
-        .text{
-          display: inline-block;
-          vertical-align: middle;
-          font-size: 15px;
-          margin: 0 2px;
-        }
-        .btn-num {
-          display: inline-block;
-          vertical-align: middle;
-          padding: 0 10px;
-          margin: 0 3px;
-          border: solid 1px #ddd;
-          font-size: 15px;
-          cursor: pointer;
-          &.disable {
-            cursor: not-allowed;
-            background: #ddd;
-            &:hover {
-              color: #000;
-              background: #ddd;
-            }
-          }
-          &.active,&:hover {
-            background: @mainColor;
-            color: #fff;
-          }
-        }
-        .select-box {
-          display: inline-block;
-          vertical-align: middle;
-          line-height: 30px;
-          font-size: 14px;
-        }
-      }
     }
 
   }
@@ -1041,6 +1037,21 @@
         line-height: 30px;
         font-size: 14px;
         font-weight: bold;
+        cursor: pointer;
+        &:hover {
+          color: @subColor;
+        }
+      }
+    }
+    .link-box {
+      display: block;
+      font-size: 14px;
+      a {
+        display: inline-block;
+        vertical-align: middle;
+        margin: 0 4px;
+        font-size: 14px;
+        color: #333;
         cursor: pointer;
         &:hover {
           color: @subColor;
