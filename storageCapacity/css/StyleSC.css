@@ -198,7 +198,7 @@ input::-webkit-input-placeholder {
 .top-container {
   margin: 20px 0;
 }
-.top-container .menu-item {
+.top-container .menu-item-main {
   display: inline-block;
   vertical-align: middle;
   margin: 0 5px;
@@ -210,13 +210,13 @@ input::-webkit-input-placeholder {
   border-radius: 5px;
   cursor: pointer;
 }
-.top-container .menu-item.status1 {
+.top-container .menu-item-main.status1 {
   background: #01a800;
 }
-.top-container .menu-item.status2 {
+.top-container .menu-item-main.status2 {
   background: #ff6565;
 }
-.top-container .menu-item.status3 {
+.top-container .menu-item-main.status3 {
   background: #ffaa2d;
 }
 .main-container {
@@ -313,7 +313,7 @@ input::-webkit-input-placeholder {
 .main-container .item-group .list-item {
   display: inline-block;
   vertical-align: bottom;
-  margin: 20px 10px;
+  margin: 20px 12px;
   padding: 0 12px;
   width: 95px;
   text-align: center;
@@ -324,18 +324,19 @@ input::-webkit-input-placeholder {
   display: block;
   margin: 0 auto;
   width: 50px;
-  height: 79px;
+  height: 50px;
   font-size: 14px;
+  background: #d9d9d9;
 }
 .main-container .item-group .list-item .item-box:after {
   content: "";
   display: block;
   position: absolute;
-  top: -11px;
+  top: -10px;
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("icon/icon_qyc.png") no-repeat center;
+  background: url("icon/icon_qyc.png") no-repeat;
 }
 .main-container .item-group .list-item .item-box .num-box {
   position: absolute;
@@ -388,7 +389,6 @@ input::-webkit-input-placeholder {
 .main-container .item-group .list-item .item-data {
   font-size: 12px;
   line-height: 24px;
-  border: solid 1px #333;
 }
 .main-container .item-group .list-item .menu-box {
   display: none;
@@ -417,11 +417,11 @@ input::-webkit-input-placeholder {
 }
 .main-container .item-group .list-item.status1 .item-box {
   width: 40px;
-  height: 59px;
+  height: 90px;
 }
 .main-container .item-group .list-item.status1 .item-box:after {
   top: -15px;
-  background: url("icon/icon_ltc.png") no-repeat center;
+  background: url("icon/icon_ltc.png") no-repeat;
 }
 .main-container .item-group .list-item.status1 .item-box .box-num {
   top: 4px;
@@ -435,7 +435,7 @@ input::-webkit-input-placeholder {
 }
 .main-container .item-group .list-item.status2 {
   padding: 0;
-  margin: 20px 15px;
+  margin: 20px 12px;
   width: 95px;
 }
 .main-container .item-group .list-item.status2 .item-box {

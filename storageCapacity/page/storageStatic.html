@@ -10,8 +10,8 @@
 <div class="wrap">
     <div class="top-container">
         <div class="center-con">
-            <div class="menu-item" crname="cr">仓容</div>
-            <div class="menu-item status1" crname="cb">储备</div>
+            <div class="menu-item-main" crname="cr">仓容</div>
+            <div class="menu-item-main status1" crname="cb">储备</div>
         </div>
     </div>
     <div class="main-container">
@@ -371,7 +371,7 @@
         }
         e.stopPropagation();
     });
-    $(".menu-item").click(function () {
+    $(".menu-item-main").click(function () {
         var name = $(this).attr("crname");
         $(".storage-wrap").hide();
         $("."+name).show();

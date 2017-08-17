@@ -1,0 +1,107 @@
+/*region 常用变量配置*/
+  //初始化配置
+  @minWidth: 1200px; //页面最小宽度
+  @defaultBg: #ffffff;//设置默认背景
+  @fontSize: 15px;//页面默认字体大小
+  @fontColor: #000;//页面默认字颜色
+  @subFontColor: #999;
+  //图片路径
+  @imgUrl: 'icon/';
+  //颜色配置
+  @mainColor: #007840;
+  @subColor: #d78700;
+  //兼容性代码
+  .compatible(@name: t  ransform,@value: rotateZ(45deg)) {
+    -webkit-@{name}: @value;
+    -moz-@{name}: @value;
+    -o-@{name}: @value;
+      @{name}: @value;
+  }
+/*endregion*/
+
+/*region 模块配置*/
+  //初始化模块
+  #Mt_initialize {
+    .initialize(@pageWidth:1200px,@bodyBackground:#fff) {
+
+      html, body {
+        width: 100%;
+        font-size: @fontSize;
+      }
+      html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6,
+      p, blockquote, pre, a, abbr, acronym, address, big, cite, del, dfn, em,
+      img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u,
+      i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, time, mark,
+      audio, video, input, textarea, tr, th, td, :before, :after {
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        font-size: @fontSize;
+        /*line-height: 1em;*/
+        font-family: "微软雅黑";
+        color: @fontColor;
+        vertical-align: baseline;
+        -webkit-tap-highlight-color: transparent;
+      }
+      body {
+        background: @bodyBackground;
+        overflow-x: hidden
+      }
+      //body 背景色
+      i, em {
+        font-style: normal
+      }
+      ol, ul, li {
+        list-style: none
+      }
+      h1, h2, h3, h4, h5, h6, b {
+        font-weight: normal
+      }
+      a, a:hover, a:active, a:focus {
+        text-decoration: none;
+        outline: none;
+        cursor: pointer
+      }
+      input {
+        display: block;
+        margin: 0;
+        padding: 0;
+        border-radius: 0;
+        border: none
+      }
+      input, textarea {
+        line-height: 1.2em;
+        outline: none;
+        -webkit-appearance: none
+      }
+      img {
+        max-width: 100%;
+        max-height: 100%;
+        border: 0;
+        vertical-align: middle
+      }
+      table {
+        border-collapse: collapse;
+        border-spacing: 0
+      }
+      p {
+        -ms-word-break: break-all;
+        word-break: break-all;
+        text-align: justify
+      }
+      input::-webkit-input-placeholder {
+        line-height: 1.2em
+      }
+      .wrap {
+        width: 100%;
+        min-width: @pageWidth;
+      }
+    }
+  }
+
+/*endregion*/
+

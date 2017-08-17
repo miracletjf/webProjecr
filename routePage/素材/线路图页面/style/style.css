@@ -1,0 +1,9 @@
+
+body{text-align: center;margin-top:0px;margin-bottom:0px;margin-left:0px;margin-right:0px;font-size:12px; font-family: Arial, Helvetica, sans-serif; overflow-x:hidden ; /*隐藏水平滚动条*/ overflow-y:hidden ; /*隐藏水平滚动条*/ }
+
+a {color:#000;}
+a:link {color:#000;text-decoration:none;}
+a:visited {color:#000;text-decoration:none;}
+a:hover {color:#f16c01;text-decoration:none;}
+a:active {color:#f16c01;text-decoration:none;}
+.bg{background: url(../images/bg_01.png) repeat-x; font-size:30px; color:#FFFFFF; font-weight:bold;}

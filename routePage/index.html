@@ -1,0 +1,63 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+    <title>线路图页面</title>
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/jquery.fullPage.js"></script>
+    <link href="css/style.css" rel="stylesheet" type="text/css" />
+    <link rel="stylesheet" href="css/fullPage.css">
+</head>
+
+<body>
+<div id="scroll_box">
+    <div class="section">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td height="75" align="center" class="bg"><table width="80%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="center">车牌：浙A623HL</td>
+                        <td align="center">承运人：中心粮库</td>
+                        <td align="center">目标仓：47号仓</td>
+                    </tr>
+                </table></td>
+            </tr>
+            <tr>
+                <td height="10" align="center">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="center"><div class="img-box"><img src="images/47.gif" /></div></td>
+            </tr>
+        </table>
+    </div>
+    <div class="section">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td height="75" align="center" class="bg"><table width="80%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                        <td align="center">车牌：浙A699GL</td>
+                        <td align="center">承运人：中心粮库</td>
+                        <td align="center">目标仓：36号仓</td>
+                    </tr>
+                </table></td>
+            </tr>
+            <tr>
+                <td height="10" align="center">&nbsp;</td>
+            </tr>
+            <tr>
+                <td align="center"><div class="img-box"><img src="images/36.gif" /></div></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<script type="text/javascript">
+    var winHeight;
+    $(function(){
+        winHeight = $(window).height();
+        $('.img-box').css("height",winHeight - 100 + "px");
+        $('#scroll_box').fullpage({"navigation": true,});
+    });
+</script>
+</body>
+</html>

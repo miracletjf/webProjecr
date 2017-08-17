@@ -1,0 +1,169 @@
+body,html {
+    padding: 0;
+    margin: 0;
+}
+input,button{ margin:0; padding:0; list-style-type:none; border: none}
+
+input[type="text"] {
+    width: 80px;
+    border: none;
+}
+input[type="text"]:focus {
+    border: none;
+    outline:none;
+}
+
+/*按钮*/
+.btn-wrap {
+    position: fixed;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 2;
+}
+.btn-wrap .btn {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0 6px;
+    margin: 0 40px;
+    height: 36px;
+    line-height: 36px;
+    min-width: 80px;
+    font-size: 15px;
+    font-weight: bold;
+    background: #eee;
+    border-radius: 3px;
+    box-shadow: 1px 2px 8px rgba(88, 88, 88, 0.98);
+    cursor: pointer;
+    z-index: 10;
+}
+.btn-wrap .btn:hover {
+    color: #fff;
+    background: #42d8d8;
+}
+
+/*布局表*/
+table {
+    border-collapse:collapse;
+    background: #fff;
+}
+
+#table_changed_tableData tr:nth-child(2n+1) {
+    background: #F9F7EF;
+}
+
+#table_changed_tableHeadClone,#table_changed_tableFixClone,#table_changed_tableColumnClone {
+    background: #E6F0F5;
+}
+
+td {
+    box-sizing: border-box;
+    position: relative;
+    height: 24px;
+    line-height: 24px;
+    padding: 0 4px;
+    border-right: solid 1px #333;
+    border-bottom: solid 1px #333;
+}
+
+td.title {
+    background: #eee;
+    border-color: #ddd;
+    text-align: center;
+    background-clip: padding-box
+}
+td.two {
+    background: url("icon/bg_two.png") no-repeat;
+    background-size: 100% 100%;
+    background-clip: padding-box
+}
+td.three {
+    background: url("icon/bg_three.png") no-repeat;
+    background-size: 100% 100%;
+    background-clip: padding-box
+}
+.td-box {
+    display: block;
+    min-width: 90px;
+    line-height: 24px;
+}
+/*展示表*/
+.cell-box {
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    font-size: 0;
+}
+.cell-box.active:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border: solid 2px #BB1868;
+}
+.cell-box:before {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    width: 0;
+    height: 100%;
+}
+.cell-c-box {
+    position: relative;
+    box-sizing: border-box;
+    padding:  0 3px;
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 20px;
+    font-size: 13px;
+    width: 100%;
+    z-index: 2;
+}
+.cell-c-box.edit:before {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    display: block;
+    width: 22px;
+    height: 22px;
+    background: url("icon/icon_edit1.png") no-repeat center;
+}
+.cell-c-box input[type="text"] {
+    position: relative;
+    z-index: 4;
+    background: none;
+}
+
+.loading-box {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: #FFF;
+    z-index: 10;
+}
+.loading-box .img-wrap {
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: block;
+    margin: auto;
+    width: 70px;
+    height: 70px;
+    background: #FFF;
+}
+.loading-box .img-wrap img{
+    display: block;
+    width: 100%;
+}
