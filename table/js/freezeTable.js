@@ -166,10 +166,10 @@ function showVal(obj, val) {
  */
 function freezeTable(table, freezeRowNum, freezeColumnNum, width, height) {
     if (typeof(freezeRowNum) == 'string')
-        freezeRowNum = parseInt(freezeRowNum)
+        freezeRowNum = parseInt(freezeRowNum);
 
     if (typeof(freezeColumnNum) == 'string')
-        freezeColumnNum = parseInt(freezeColumnNum)
+        freezeColumnNum = parseInt(freezeColumnNum);
 
     var tableId;
     if (typeof(table) == 'string') {
@@ -208,11 +208,11 @@ function freezeTable(table, freezeRowNum, freezeColumnNum, width, height) {
     var divTableHead = freezeRowNum > 0 ? $("#" + tableId + "_tableHead") : null;
     var divTableColumn = freezeColumnNum > 0 ? $("#" + tableId + "_tableColumn") : null;
     var divTableData = $("#" + tableId + "_tableData");
-
+    var tableClone = table.clone(true);
     divTableData.append(table);
 
     if (divTableFix != null) {
-        var tableFixClone = table.clone(true);
+        var tableFixClone = tableClone;
         tableFixClone.attr("id", tableId + "_tableFixClone");
         tableFixClone.find("tr").each(function(RowIndex){
             if(RowIndex>=freezeRowNum){
@@ -230,7 +230,7 @@ function freezeTable(table, freezeRowNum, freezeColumnNum, width, height) {
     }
 
     if (divTableHead != null) {
-        var tableHeadClone = table.clone(true);
+        var tableHeadClone = tableClone;
         tableHeadClone.attr("id", tableId + "_tableHeadClone");
         tableHeadClone.find("tr").each(function(RowIndex){
             if(RowIndex>=freezeRowNum){
@@ -248,7 +248,7 @@ function freezeTable(table, freezeRowNum, freezeColumnNum, width, height) {
     }
 
     if (divTableColumn != null) {
-        var tableColumnClone = table.clone(true);
+        var tableColumnClone = tableClone;
         tableColumnClone.attr("id", tableId + "_tableColumnClone");
         tableColumnClone.find("tr").each(function(RowIndex){
             if(RowIndex<freezeRowNum){

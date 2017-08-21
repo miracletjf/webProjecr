@@ -20,7 +20,7 @@ function loading() {
     document.write(loadHtml);
 }
 
-var editTd,focusObj;
+var editTd;
 
 $(document).ready(function () {
     if(document.form1){
@@ -41,43 +41,54 @@ window.onresize = function(){
 }
 //重新计算宽高
 function reCount(tbW,tbH){
-    $('#table_changed_tableLayout').css({'width':tbW+'px','height':tbH+'px'});
-    $('#table_changed_tableData').css({'width':tbW+'px','height':tbH+'px'});
-    $('#table_changed_tableHead').css({'width':tbW-17+'px'});
-    $('#table_changed_tableColumn').css({'height':tbH-17+'px'});
+    $('#table_primary_tableLayout').css({'width':tbW+'px','height':tbH+'px'});
+    $('#table_primary_tableData').css({'width':tbW+'px','height':tbH+'px'});
+    $('#table_primary_tableHead').css({'width':tbW-17+'px'});
+    $('#table_primary_tableColumn').css({'height':tbH-17+'px'});
 }
 
 //回车事件
 document.onkeydown=function(event){
     var objAc,idAc,idNe,posY,posX;
     var e = event || window.event || arguments.callee.caller.arguments[0];
-    objAc = $('.cell-box.active') || $('#cell_9_1');
-    idAc = objAc.attr("id");
-    console.log(idAc);
-    idNe = idAc.match(/\d+/g);
 
     if(e && e.keyCode==13){
         var act = $(document.activeElement).parent();
-        console.log(act);
         if(act.parent().attr("class").indexOf("edit")>-1){
             var i = editTd.index(act)+1;
             if(i>=editTd.length) i = 0;
             editTd.eq(i).click();
         }
     }else if(e && e.keyCode == 39){
+        objAc = $('.cell-box.active') || $('#cell_9_1');
+        idAc = objAc.attr("id");
+        console.log(idAc);
+        idNe = idAc.match(/\d+/g);
         posY = idNe[0];
         posX = ++idNe[1];
         $('#cell_'+posY+'_'+posX).click();
     }else if(e && e.keyCode == 37){
+        objAc = $('.cell-box.active') || $('#cell_9_1');
+        idAc = objAc.attr("id");
+        console.log(idAc);
+        idNe = idAc.match(/\d+/g);
         posY = idNe[0];
         posX = --idNe[1];
         $('#cell_'+posY+'_'+posX).click();
     }else if(e && e.keyCode == 38){
+        objAc = $('.cell-box.active') || $('#cell_9_1');
+        idAc = objAc.attr("id");
+        console.log(idAc);
+        idNe = idAc.match(/\d+/g);
         posY = --idNe[0];
         posX = idNe[1];
       console.log('#cell_'+posY+'_'+posX);
         $('#cell_'+posY+'_'+posX).click();
     }else if(e && e.keyCode == 40){
+        objAc = $('.cell-box.active') || $('#cell_9_1');
+        idAc = objAc.attr("id");
+        console.log(idAc);
+        idNe = idAc.match(/\d+/g);
         posY = ++idNe[0];
         posX = idNe[1];
         $('#cell_'+posY+'_'+posX).click();
@@ -92,6 +103,10 @@ function tableToChange(callback) {
         var $tableBox = $('#table_box');
         var $tablePrimary = $('#table_primary');
         var numObj = tableCreat($tablePrimary,1,5);
+        fRows = $tableBox.attr("freezeRowNum")-(-1) || 1;
+        fCols = $tableBox.attr("freezeColumnNum")-(-1) || 1;
+        freezeTable($("#table_primary"),fRows,fCols,winWidth,winHeight);
+        $("#table_primary_tableHead .cell-box,#table_primary_tableColumn .cell-box,#table_primary_tableFix .cell-box").removeAttr("id");
         if( typeof (callback)=="function"){
             callback();
         }
@@ -133,7 +148,6 @@ function tableCreat($table,addRow,addCol) {
 
    //增加底部
    for(var l=0;l<addRow;l++){
-       console.log(typeof(l));
        addHtml += '<tr><td class="head"><div class="cell-box">'+(trLen+l)+'</div></td>';
        for(var m=0; m < addCol + tdLen;m++){
             addHtml += tdModel;
@@ -188,7 +202,7 @@ function setTableSize(tableWidth) {
 }
 //点击选中
 function tdActive(obj) {
-    console.log(obj);
+    console.log($(obj).parent().parent().parent().parent().parent());
     var activeOdd = $('.active') || null;//active对象数组
 
     if(activeOdd){
@@ -198,10 +212,6 @@ function tdActive(obj) {
     $obj.addClass('active');
     if ($obj.find('input[type="text"]').length > 0) {
         $obj.find('input[type="text"]').eq(0).focus();
-        focusObj = $obj.find('input[type="text"]').eq(0);
-    }else {
-        focusObj.blur();
-        console.log(focusObj);
     }
 
 }

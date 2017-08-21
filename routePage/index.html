@@ -56,7 +56,14 @@
     $(function(){
         winHeight = $(window).height();
         $('.img-box').css("height",winHeight - 100 + "px");
-        $('#scroll_box').fullpage({"navigation": true,});
+        $('#scroll_box').fullpage({
+            navigation: true,
+            continuousVertical: true
+        });
+
+        setInterval(function(){
+            $.fn.fullpage.moveSectionDown();
+        }, 3000);
     });
 </script>
 </body>
