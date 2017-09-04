@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/Style.css">
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <title>江西省储备粮</title>
+</head>
+<body>
+<div class="wrap">
+    <div class="bg-box"></div>
+    <div class="center-cotar center-wrap" id="main_wrap">
+        <div class="top-box">
+            <img src="images/logo.png" alt="">
+        </div>
+        <div class="main-box">
+            <table border="0" cellspacing="0" cellpadding="0">
+                <tbody>
+                <tr>
+                    <td rowspan="10" width="195px">
+                        <div class="box-item td-item1 statue0">
+                            <span class="icon-box statue1">
+                                <img src="images/icon_ywgl.png" alt="">
+                            </span>
+                            业务管理
+                        </div>
+                    </td>
+                    <td rowspan="2" width="172px">
+                        <div class="box-item td-item2 statue1">经营管理</div>
+                    </td>
+                    <td rowspan="5" width="229px" >
+                        <div class="box-item td-item3 statue6">
+                            <span class="icon-box">
+                                <img src="images/icon_crk.png" alt="">
+                            </span>
+                            智能出入库
+                        </div>
+                    </td>
+                    <td rowspan="5" width="229px" >
+                        <div class="box-item td-item3"><img src="images/daosui.gif" alt=""></div>
+                    </td>
+                    <td rowspan="5" width="229px" >
+                        <div class="box-item td-item3 statue8">
+                            <span class="icon-box">
+                                <img src="images/icon_cwgl.gif" alt="">
+                            </span>
+                            财务管理
+                        </div>
+                    </td>
+                    <td rowspan="4" width="220px" >
+                        <div class="box-item td-item5 statue2">
+                            <span class="icon-box statue2">
+                                <img src="images/icon_zhgk.gif" alt="">
+                            </span>
+                            综合管控
+                        </div>
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td rowspan="2" >
+                        <div class="box-item td-item2 statue2">仓储管理</div>
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td rowspan="2" >
+                        <div class="box-item td-item2 statue3">统计分析</div>
+                    </td>
+                    <td rowspan="2" >
+                        <div class="box-item td-item6 statue9">可视化展现</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="5" >
+                        <div class="box-item td-item4"><img src="images/yunliang.gif" alt=""></div>
+                    </td>
+                    <td rowspan="5" >
+                        <div class="box-item td-item4 statue7">
+                            <span class="icon-box">
+                                <img src="images/icon_xxjh.gif" alt="">
+                            </span>
+                            信息交换
+                        </div>
+                    </td>
+                    <td rowspan="5" >
+                        <div class="box-item td-item4 statue5">
+                            <span class="icon-box">
+                                <img src="images/icon_znbg.png" alt="">
+                            </span>
+                            智能办公
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="2" >
+                        <div class="box-item td-item2 statue4">视频追溯</div>
+                    </td>
+                    <td rowspan="2" >
+                        <div class="box-item td-item6 statue4">智能安防</div>
+                    </td>
+                </tr>
+                <tr></tr>
+                <tr>
+                    <td rowspan="2" >
+                        <div class="box-item td-item2 statue5 no-bor">远程监管</div>
+                    </td>
+                    <td rowspan="2" >
+                        <div class="box-item td-item6 statue10 no-bor">仓房智能一体化</div>
+                    </td>
+                </tr>
+                <tr></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="bottom-box">
+            <span class="text">主办单位</span>
+            <a class="link">江西省储备粮永修有限公司</a>
+            <span class="line"></span>
+            <span class="text">技术支持</span>
+            <a class="link">杭州安鸿科技股份有限公司</a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        suit();
+    });
+    window.onresize=function(){
+        suit();
+    }
+    function suit() {
+        var winHeight = $(window).height();
+        if(winHeight< 800){
+            $("#main_wrap").css("zoom","0.8");
+        } else {
+            $("#main_wrap").css("zoom","1");
+        }
+    }
+</script>
+</body>
+</html>

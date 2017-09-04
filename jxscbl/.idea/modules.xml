@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/SystemManage.iml" filepath="$PROJECT_DIR$/.idea/SystemManage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/jxscbl.iml" filepath="$PROJECT_DIR$/.idea/jxscbl.iml" />
     </modules>
   </component>
 </project>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/styleHealth.css">
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <title>绍兴粮网</title>
+</head>
+<body>
+<div class="wrap">
+    <div class="center-cotar">
+        <div class="left-box">
+            <div class="l-top">
+                <span class="text-title">直属库健康指数</span>
+                <div class="chart-box" id="chart1"></div>
+                <div class="box">
+                    <div class="text-box">
+                        <span class="text">今日健康指数：</span>
+                        <span class="name">15</span>
+                    </div>
+                    <div class="text-box">
+                        <span class="text">总体情况：</span>
+                        <span class="name">安全</span>
+                    </div>
+                    <div class="text-box min">
+                        <span class="text">预测置信率：</span>
+                        <span class="name">86%</span>
+                    </div>
+                </div>
+            </div>
+            <div class="l-bottom">
+                <span class="text-title">仓房健康指数</span>
+                <div class="chart-box" id="chart2"></div>
+            </div>
+        </div>
+        <div class="right-box">
+            <span class="text-title">仓房健康指数详细信息</span>
+            <div class="box">
+                <ul class="menu">
+                    <li class="item active" tabTitle="tab1">严重</li>
+                    <li class="item" tabTitle="tab2">轻微</li>
+                    <li class="item" tabTitle="tab3">安全</li>
+                </ul>
+                <ul class="table-box">
+                    <li class="table" tabContent="tab1">
+                        <table class="pg_result" width="100%">
+                            <tbody>
+                            <tr class="pg_result_title">
+                                <td width="20%">仓房</td>
+                                <td width="20%">品种</td>
+                                <td width="20%">数量(kg)</td>
+                                <td width="20%">收获年份</td>
+                                <td width="20%">健康指数</td>
+                            </tr>
+                            <tr class="pg_result_content">
+                                <td>G001</td>
+                                <td>晚籼米</td>
+                                <td>1000000</td>
+                                <td>2015</td>
+                                <td class="red">75</td>
+                            </tr>
+                            <tr class="pg_result_content_">
+                                <td>G002</td>
+                                <td>粳米</td>
+                                <td>2500000</td>
+                                <td>2014</td>
+                                <td class="red">68</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                    <li class="table" tabContent="tab2" style="display: none;">
+                        <table class="pg_result" width="100%">
+                            <tbody>
+                            <tr class="pg_result_title">
+                                <td width="20%">仓房</td>
+                                <td width="20%">品种</td>
+                                <td width="20%">数量(kg)</td>
+                                <td width="20%">收获年份</td>
+                                <td width="20%">健康指数</td>
+                            </tr>
+                            <tr class="pg_result_content">
+                                <td>G011</td>
+                                <td>晚籼米</td>
+                                <td>1000000</td>
+                                <td>2015</td>
+                                <td class="red">75</td>
+                            </tr>
+                            <tr class="pg_result_content_">
+                                <td>G012</td>
+                                <td>粳米</td>
+                                <td>2500000</td>
+                                <td>2014</td>
+                                <td class="red">68</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                    <li class="table" tabContent="tab3" style="display: none;">
+                        <table class="pg_result" width="100%">
+                            <tbody>
+                            <tr class="pg_result_title">
+                                <td width="20%">仓房</td>
+                                <td width="20%">品种</td>
+                                <td width="20%">数量(kg)</td>
+                                <td width="20%">收获年份</td>
+                                <td width="20%">健康指数</td>
+                            </tr>
+                            <tr class="pg_result_content">
+                                <td>G021</td>
+                                <td>晚籼米</td>
+                                <td>1000000</td>
+                                <td>2015</td>
+                                <td class="red">75</td>
+                            </tr>
+                            <tr class="pg_result_content_">
+                                <td>G022</td>
+                                <td>粳米</td>
+                                <td>2500000</td>
+                                <td>2014</td>
+                                <td class="red">68</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="dist/echarts.js"></script>
+<script type="text/javascript" src="js/echartsJs.js"></script>
+<script>
+    $('[tabTitle]').click(function () {
+        var name = $(this).attr('tabTitle');
+       $('[tabTitle]').removeClass('active');
+       $(this).addClass('active');
+       $('[tabContent]').hide();
+       $('[tabContent='+name+']').show();
+    });
+</script>
+</body>
+</html>
