@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/Stylezsly.css">
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <title>浙江省粮食局直属粮油储备库</title>
+</head>
+<body>
+<div class="wrap bg-box ver-center">
+    <div class="center-cotar center-wrap" id="main_wrap">
+        <div class="top-box">
+            <img src="images/logo.png" alt="">
+        </div>
+        <div class="main-box">
+            <table >
+                <tbody>
+                <tr>
+                    <td rowspan="10" width="392">
+                        <div class="box-item td-item1 statue0">
+                            <span class="icon-box statue1">
+                                <img src="images/icon_zncc.png" alt="">
+                            </span>
+                            <span class="text">智能仓储</span>
+                        </div>
+                        <div class="clear-float">
+                            <div class="box-item td-item3 statue1 float-l">
+                                <span class="icon-box statue3">
+                                    <img src="images/icon_dcslq.png" alt="">
+                                </span>
+                                <span class="text">多参数粮情况</span>
+                            </div>
+                            <div class="box-item td-item3 statue2 float-r">
+                                <span class="icon-box statue3">
+                                    <img src="images/icon_kctj.png" alt="">
+                                </span>
+                                <span class="text">库存数量检测</span>
+                            </div>
+                        </div>
+                    </td>
+                    <td rowspan="2" width="201">
+                        <div class="box-item td-item2 statue3">
+                            <span class="icon-box statue3">
+                                <img src="images/icon_zntf.png" alt="">
+                            </span>
+                            <span class="text">智能通风</span>
+                        </div>
+                        <div class="box-item td-item2 statue4">
+                            <span class="icon-box statue3">
+                                <img src="images/icon_znqt.png" alt="">
+                            </span>
+                            <span class="text">智能气调</span>
+                        </div>
+                        <div class="box-item td-item2 statue5">
+                            <span class="icon-box statue3">
+                                <img src="images/icon_znkw.png" alt="">
+                            </span>
+                            <span class="text">智能控温</span>
+                        </div>
+                        <div class="box-item td-item2 statue6 no-bor">
+                            <span class="icon-box statue3">
+                                <img src="images/icon_hlxz.png" alt="">
+                            </span>
+                            <span class="text">环流熏蒸</span>
+                        </div>
+                    </td>
+                    <td rowspan="5" width="230" >
+                        <div class="box-item td-item4 statue7">
+                            <span class="icon-box">
+                                <img src="images/icon_zhaf.gif" alt="">
+                            </span>
+                            <span class="text">综合安防</span>
+                        </div>
+                        <div class="box-item td-item5"><img src="images/icon_pfc.gif" alt=""></div>
+                    </td>
+                    <td rowspan="5" width="230" >
+                        <div class="box-item td-item4"><img src="images/ds.gif" alt=""></div>
+
+                        <div class="box-item td-item5 statue8">
+                            <span class="icon-box">
+                                <img src="images/icon_zncrk.png" alt="">
+                            </span>
+                            <span class="text">智能出入库</span>
+                        </div>
+                    </td>
+                    <td rowspan="5" width="230" >
+                        <div class="box-item td-item4 statue9">
+                            <span class="icon-box">
+                                <img src="images/icon_cdyg.gif" alt="">
+                            </span>
+                            <span class="text">仓顶阳光</span>
+                        </div>
+                        <div class="box-item td-item5"><img src="images/yg.gif" alt=""></div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="bottom-box">
+            <span class="text">主办单位</span>
+            <a class="link">浙江省粮食局直属粮油储备库</a>
+            <span class="line"></span>
+            <span class="text">技术支持</span>
+            <a class="link">杭州安鸿科技股份有限公司</a>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    $(function () {
+        suit();
+    });
+    window.onresize=function(){
+        suit();
+    }
+    function suit() {
+        var winHeight = $(window).height();
+        if(winHeight< 800){
+            $("#main_wrap").css("zoom","0.8");
+        } else {
+            $("#main_wrap").css("zoom","1");
+        }
+    }
+</script>
+</body>
+</html>

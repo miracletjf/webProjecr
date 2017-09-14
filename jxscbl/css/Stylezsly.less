@@ -1,0 +1,265 @@
+@charset "utf-8";
+
+@import "MtConfig.less";
+
+//初始化页面
+#Mt_initialize > .initialize(@minWidth,@defaultBg);
+
+/*region 常用布局*/
+//定义变量
+@subColor0: #1fd163;
+@subColor1: #07bc99;
+@subColor2: #4599e1;
+@subColor3: #e03a4e;
+@subColor4: #01c0dc;
+@subColor5: #ff5d5e;
+@subColor6: #f6a651;
+@subColor7: #f39035;
+@subColor8: #4d68db;
+@subColor9: #e95893;
+//宽高设置
+@tbHeight: 430px;
+//清除浮动
+.clear-float:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+//左浮动
+.float-l {
+  float: left;
+}
+//右浮动
+.float-r {
+  float: right;
+}
+//弹性盒子
+.flex-box {
+  display: -moz-box!important;
+  display: -webkit-box!important;
+  display: box!important;
+}
+.box-flex(@n: 1) {
+  -moz-box-flex: @n;
+  -webkit-box-flex: @n;
+  box-flex: @n;
+}
+.box-flex1 {
+  .box-flex();
+}
+//居中盒子
+.center-cotar {
+  display: block;
+  margin: 0 auto;
+  width: @minWidth;
+}
+//文字超出部分隐藏
+.overflow-text() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+//动画
+.transition(@property: all,@duration: 0.3s,@type: ease-in-out,@delay: 0s) {
+  //css3过度
+  -webkit-transition: @arguments;
+  -moz-transition: @arguments;
+  -o-transition: @arguments;
+  transition: @arguments;
+}
+
+.transform(@name,@argu) {
+  //css3变换
+  -webkit-transform: e(%('%s(%s)',@name,@argu));
+  -moz-transform: e(%('%s(%s)',@name,@argu));
+  -ms-transform: e(%('%s(%s)',@name,@argu));
+  -o-transform: e(%('%s(%s)',@name,@argu));
+  transform: e(%('%s(%s)',@name,@argu));
+}
+/*endregion*/
+
+/*region index*/
+.bg-box {
+  position: absolute;
+  left:0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: url("../images/bg.jpg") no-repeat center;
+  background-size: cover;
+}
+.ver-center {
+  text-align: center;
+}
+.center-wrap {
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 120px;
+  height: 710px;
+  z-index: 10;
+}
+.top-box {
+  img {
+    display: block;
+    width: 100%;
+  }
+}
+.main-box {
+  margin-top: 60px;
+  .no-bor {
+    border: none!important;
+  }
+  table {
+    .box-item {
+      display: block;
+      box-sizing: border-box;
+      vertical-align: middle;
+      line-height: 48px;
+      color: #fff;
+      text-align: center;
+      font-size: 26px;
+      cursor: pointer;
+
+
+      .icon-box {
+        display: block;
+        text-align: center;
+        padding-top: 30px;
+        img {
+          display: inline-block;
+        }
+        &.statue1 {
+          padding-top: 85px;
+          padding-bottom: 10px;
+        }
+        &.statue2 {
+          padding-top: 20px;
+        }
+        &.statue3 {
+          padding: 0;
+          display: inline-block;
+          vertical-align: middle;
+          width: 33px;
+          height: 28px;
+          margin-right: 4px;
+          img {
+            display: block;
+            width: 100%;
+          }
+        }
+      }
+
+      &.td-item1 {
+        font-size: 32px;
+        font-weight: bold;
+        height: @tbHeight/4 *3;
+        border-right: solid 1px #fff;
+        border-bottom: solid 1px #fff;
+      }
+      &.td-item2 {
+        height: @tbHeight/4;
+        border-bottom: solid 1px #fff;
+        line-height: @tbHeight/4;
+        margin-right: 12px;
+      }
+      &.td-item3 {
+        width: 195px;
+        height: @tbHeight/4;
+        line-height: @tbHeight/4;
+        border-right: solid 1px #fff;
+      }
+      &.td-item4 {
+        height: @tbHeight/2 - 6px;
+        margin-right: 12px;
+        margin-bottom: 6px;
+      }
+      &.td-item5 {
+        height: @tbHeight/2 - 6px;
+        margin-right: 12px;
+        margin-top: 6px;
+      }
+      &.statue0 {
+        background: @subColor0;
+        &:hover {
+          background: lighten(@subColor0,10%);
+        }
+      }
+      &.statue1 {
+        background: @subColor1;
+        &:hover {
+          background: lighten(@subColor1,10%);
+        }
+      }
+      &.statue2 {
+        background: @subColor2;
+        &:hover {
+          background: lighten(@subColor2,10%);
+        }
+      }
+      &.statue3 {
+        background: @subColor3;
+        &:hover {
+          background: lighten(@subColor3,10%);
+        }
+      }
+      &.statue4 {
+        background: @subColor4;
+        &:hover {
+          background: lighten(@subColor4,10%);
+        }
+      }
+      &.statue5 {
+        background: @subColor5;
+        &:hover {
+          background: lighten(@subColor5,10%);
+        }
+      }
+      &.statue6 {
+        background: @subColor6;
+        &:hover {
+          background: lighten(@subColor6,10%);
+        }
+      }
+      &.statue7 {
+        background: @subColor7;
+        &:hover {
+          background: lighten(@subColor7,10%);
+        }
+      }
+      &.statue8 {
+        background: @subColor8;
+        &:hover {
+          background: lighten(@subColor8,10%);
+        }
+      }
+      &.statue9 {
+        background: @subColor9;
+        &:hover {
+          background: lighten(@subColor9,10%);
+        }
+      }
+    }
+
+  }
+}
+.bottom-box {
+  margin-top: 100px;
+  text-align: center;
+  .text,.link {
+    vertical-align: middle;
+    margin-right: 10px;
+    color: #fff;
+    font-size: 20px;
+  }
+  .link:hover {
+    color: #23fbba;
+  }
+  .line {
+    vertical-align: middle;
+    width: 0;
+    margin-right: 10px;
+    height: 14px;
+    border-right: solid 1px #fff;
+  }
+}
+/*#endregion*/

@@ -12,7 +12,7 @@ var containerBox = new Vue({
             var _self = this;
             $.ajax({
                 type: 'get',
-                url: 'http://127.0.0.1:8180/wmsGUI.pr.spGUIExpand.do',
+                url: 'http://127.0.0.1:9901/wnsGUI.pr.spGUIExpand.do',
                 dataType: 'jsonp',
                 jsonp: 'callback',
                 data: {
@@ -28,10 +28,12 @@ var containerBox = new Vue({
     },
     filters : {
         statusType: function (value) {
-            if(value == 'P'){
+            if(value == 'Q'){
                 return '';
+            }else if(value == "T"){
+                return 'status1';
             }
-            return 'status';
+            return 'status2';
         },
         statusType2: function(index){
             if((index/5)%2 == 0){
@@ -39,12 +41,18 @@ var containerBox = new Vue({
             }
         },
         pz: function (value) {
-            if (value == 83 || value == 85) {
-                return 'xiaomai';
-            } else if (value == 86) {
+            if (value == "83") {
+                return 'wanxianmi';
+            } else if (value == "84") {
                 return 'yumi';
-            } else {
+            } else if (value == "85") {
+                return 'zaoxianmi';
+            } else if (value == "88") {
+                return 'xiaomai';
+            } else if (value == "92") {
                 return 'dadou';
+            } else {
+                return 'xiaomai';
             }
         }
 

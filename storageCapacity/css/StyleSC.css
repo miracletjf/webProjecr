@@ -480,6 +480,7 @@ input::-webkit-input-placeholder {
   top: 0;
   bottom: 0;
   width: 20px;
+  background: url("icon/icon-show-xiaomai.png") no-repeat center;
 }
 .bottom-container .icon-item.xiaomai:after {
   background: url("icon/icon-show-xiaomai.png") no-repeat center;

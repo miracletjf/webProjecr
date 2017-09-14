@@ -4,194 +4,33 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script type="text/javascript" src="../js/jquery-1.8.3.min.js"></script>
+    <script type="text/javascript" src="../js/vue.min.js"></script>
     <link rel="stylesheet" href="../css/StyleSC.css">
 </head>
 <body>
-<div class="wrap">
+<div class="wrap" id="container_box">
     <div class="top-container">
         <div class="center-con">
             <div class="menu-item-main" crname="cr">仓容</div>
             <div class="menu-item-main status1" crname="cb">储备</div>
+            <div class="menu-item-main status2" crname="ccdw">存储单位</div>
+            <div class="menu-item-main status3" crname="kczl">库存总量</div>
         </div>
     </div>
     <div class="main-container">
         <div class="center-con clear-float tab-box">
             <div class="storage-wrap float-l cr">
                 <div class="item-group">
-                    <div class="list-item">
-                        <div class="item-box xiaomai">
-                            <div class="num-box">T123</div>
-                            <div class="show-box">
-                                <div class="sub-item-box"></div>
+                    <div class="list-item" v-for="(content,index) in storages" :class="content.TYPE | statusType">
+                        <div class="item-box" :class="content.GB | pz">
+                            <div class="num-box">{{content.SH_NAME}}</div>
+                            <div class="show-box" :style="{height:(content.NUM / content.CAPACITY ) * 100 + '%'}">
+                                <div class="sub-item-box" v-for="(st,index) in content.stock"
+                                     :style="{width: (st.NUM/content.NUM)*100 + '%'}"></div>
                             </div>
                             <div class="bg-box"></div>
                         </div>
-                        <div class="item-data">123123.123</div>
-                        <div class="menu-box">
-                            <div class="menu-item">选项一</div>
-                            <div class="menu-item">选项二</div>
-                            <div class="menu-item">选项三</div>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="item-box xiaomai">
-                            <div class="num-box">T123</div>
-                            <div class="show-box">
-                                <div class="sub-item-box"></div>
-                            </div>
-                            <div class="bg-box"></div>
-                        </div>
-                        <div class="item-data">123123.123</div>
-                        <div class="menu-box">
-                            <div class="menu-item">选项一</div>
-                            <div class="menu-item">选项二</div>
-                            <div class="menu-item">选项三</div>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="item-box xiaomai">
-                            <div class="num-box">T123</div>
-                            <div class="show-box">
-                                <div class="sub-item-box"></div>
-                            </div>
-                            <div class="bg-box"></div>
-                        </div>
-                        <div class="item-data">123123.123</div>
-                        <div class="menu-box">
-                            <div class="menu-item">选项一</div>
-                            <div class="menu-item">选项二</div>
-                            <div class="menu-item">选项三</div>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="item-box xiaomai">
-                            <div class="num-box">T123</div>
-                            <div class="show-box">
-                                <div class="sub-item-box"></div>
-                            </div>
-                            <div class="bg-box"></div>
-                        </div>
-                        <div class="item-data">123123.123</div>
-                        <div class="menu-box">
-                            <div class="menu-item">选项一</div>
-                            <div class="menu-item">选项二</div>
-                            <div class="menu-item">选项三</div>
-                        </div>
-                    </div>
-                    <div class="list-item status1">
-                        <div class="item-box xiaomai">
-                            <div class="num-box">T123</div>
-                            <div class="show-box">
-                                <div class="sub-item-box"></div>
-                            </div>
-                            <div class="bg-box"></div>
-                        </div>
-                        <div class="item-data">123123.123</div>
-                        <div class="menu-box">
-                            <div class="menu-item">选项一</div>
-                            <div class="menu-item">选项二</div>
-                            <div class="menu-item">选项三</div>
-                        </div>
-                    </div>
-                    <div class="list-item status1">
-                        <div class="item-box xiaomai">
-                            <div class="num-box">T123</div>
-                            <div class="show-box">
-                                <div class="sub-item-box"></div>
-                            </div>
-                            <div class="bg-box"></div>
-                        </div>
-                        <div class="item-data">123123.123</div>
-                        <div class="menu-box">
-                            <div class="menu-item">选项一</div>
-                            <div class="menu-item">选项二</div>
-                            <div class="menu-item">选项三</div>
-                        </div>
-                    </div>
-                    <div class="list-item status1">
-                        <div class="item-box xiaomai">
-                            <div class="num-box">T123</div>
-                            <div class="show-box">
-                                <div class="sub-item-box"></div>
-                            </div>
-                            <div class="bg-box"></div>
-                        </div>
-                        <div class="item-data">123123.123</div>
-                        <div class="menu-box">
-                            <div class="menu-item">选项一</div>
-                            <div class="menu-item">选项二</div>
-                            <div class="menu-item">选项三</div>
-                        </div>
-                    </div>
-                    <div class="list-item status1">
-                        <div class="item-box xiaomai">
-                            <div class="num-box">T123</div>
-                            <div class="show-box">
-                                <div class="sub-item-box"></div>
-                            </div>
-                            <div class="bg-box"></div>
-                        </div>
-                        <div class="item-data">123123.123</div>
-                        <div class="menu-box">
-                            <div class="menu-item">选项一</div>
-                            <div class="menu-item">选项二</div>
-                            <div class="menu-item">选项三</div>
-                        </div>
-                    </div>
-                    <div class="list-item status2">
-                        <div class="item-box xiaomai">
-                            <div class="num-box">T123</div>
-                            <div class="show-box">
-                                <div class="sub-item-box"></div>
-                            </div>
-                            <div class="bg-box"></div>
-                        </div>
-                        <div class="item-data">123123.123</div>
-                        <div class="menu-box">
-                            <div class="menu-item">选项一</div>
-                            <div class="menu-item">选项二</div>
-                            <div class="menu-item">选项三</div>
-                        </div>
-                    </div>
-                    <div class="list-item status2">
-                        <div class="item-box xiaomai">
-                            <div class="num-box">T123</div>
-                            <div class="show-box">
-                                <div class="sub-item-box"></div>
-                            </div>
-                            <div class="bg-box"></div>
-                        </div>
-                        <div class="item-data">123123.123</div>
-                        <div class="menu-box">
-                            <div class="menu-item">选项一</div>
-                            <div class="menu-item">选项二</div>
-                            <div class="menu-item">选项三</div>
-                        </div>
-                    </div>
-                    <div class="list-item status2">
-                        <div class="item-box xiaomai">
-                            <div class="num-box">T123</div>
-                            <div class="show-box">
-                                <div class="sub-item-box"></div>
-                            </div>
-                            <div class="bg-box"></div>
-                        </div>
-                        <div class="item-data">123123.123</div>
-                        <div class="menu-box">
-                            <div class="menu-item">选项一</div>
-                            <div class="menu-item">选项二</div>
-                            <div class="menu-item">选项三</div>
-                        </div>
-                    </div>
-                    <div class="list-item status2">
-                        <div class="item-box xiaomai">
-                            <div class="num-box">T123</div>
-                            <div class="show-box">
-                                <div class="sub-item-box"></div>
-                            </div>
-                            <div class="bg-box"></div>
-                        </div>
-                        <div class="item-data">123123.123</div>
+                        <div class="item-data">{{content.NUM}}</div>
                         <div class="menu-box">
                             <div class="menu-item">选项一</div>
                             <div class="menu-item">选项二</div>
@@ -201,99 +40,287 @@
                 </div>
             </div>
             <div class="storage-wrap float-l cb" style="display: none">
-            <div class="item-group">
-                <div class="list-item status2">
-                    <div class="item-box xiaomai">
-                        <div class="num-box">T123</div>
-                        <div class="show-box">
-                            <div class="sub-item-box"></div>
+                <div class="item-group">
+                    <div class="list-item status2">
+                        <div class="item-box xiaomai">
+                            <div class="num-box">T123</div>
+                            <div class="show-box">
+                                <div class="sub-item-box"></div>
+                            </div>
+                            <div class="bg-box"></div>
                         </div>
-                        <div class="bg-box"></div>
-                    </div>
-                    <div class="item-data">123123.123</div>
-                    <div class="menu-box">
-                        <div class="menu-item">选项一</div>
-                        <div class="menu-item">选项二</div>
-                        <div class="menu-item">选项三</div>
-                    </div>
-                </div>
-                <div class="list-item status2">
-                    <div class="item-box xiaomai">
-                        <div class="num-box">T123</div>
-                        <div class="show-box">
-                            <div class="sub-item-box"></div>
+                        <div class="item-data">123123.123</div>
+                        <div class="menu-box">
+                            <div class="menu-item">选项一</div>
+                            <div class="menu-item">选项二</div>
+                            <div class="menu-item">选项三</div>
                         </div>
-                        <div class="bg-box"></div>
                     </div>
-                    <div class="item-data">123123.123</div>
-                    <div class="menu-box">
-                        <div class="menu-item">选项一</div>
-                        <div class="menu-item">选项二</div>
-                        <div class="menu-item">选项三</div>
-                    </div>
-                </div>
-                <div class="list-item status2">
-                    <div class="item-box xiaomai">
-                        <div class="num-box">T123</div>
-                        <div class="show-box">
-                            <div class="sub-item-box"></div>
+                    <div class="list-item status2">
+                        <div class="item-box xiaomai">
+                            <div class="num-box">T123</div>
+                            <div class="show-box">
+                                <div class="sub-item-box"></div>
+                            </div>
+                            <div class="bg-box"></div>
                         </div>
-                        <div class="bg-box"></div>
-                    </div>
-                    <div class="item-data">123123.123</div>
-                    <div class="menu-box">
-                        <div class="menu-item">选项一</div>
-                        <div class="menu-item">选项二</div>
-                        <div class="menu-item">选项三</div>
-                    </div>
-                </div>
-                <div class="list-item status2">
-                    <div class="item-box xiaomai">
-                        <div class="num-box">T123</div>
-                        <div class="show-box">
-                            <div class="sub-item-box"></div>
+                        <div class="item-data">123123.123</div>
+                        <div class="menu-box">
+                            <div class="menu-item">选项一</div>
+                            <div class="menu-item">选项二</div>
+                            <div class="menu-item">选项三</div>
                         </div>
-                        <div class="bg-box"></div>
                     </div>
-                    <div class="item-data">123123.123</div>
-                    <div class="menu-box">
-                        <div class="menu-item">选项一</div>
-                        <div class="menu-item">选项二</div>
-                        <div class="menu-item">选项三</div>
-                    </div>
-                </div>
-                <div class="list-item status2">
-                    <div class="item-box xiaomai">
-                        <div class="num-box">T123</div>
-                        <div class="show-box">
-                            <div class="sub-item-box"></div>
+                    <div class="list-item status2">
+                        <div class="item-box xiaomai">
+                            <div class="num-box">T123</div>
+                            <div class="show-box">
+                                <div class="sub-item-box"></div>
+                            </div>
+                            <div class="bg-box"></div>
                         </div>
-                        <div class="bg-box"></div>
-                    </div>
-                    <div class="item-data">123123.123</div>
-                    <div class="menu-box">
-                        <div class="menu-item">选项一</div>
-                        <div class="menu-item">选项二</div>
-                        <div class="menu-item">选项三</div>
-                    </div>
-                </div>
-                <div class="list-item status2">
-                    <div class="item-box xiaomai">
-                        <div class="num-box">T123</div>
-                        <div class="show-box">
-                            <div class="sub-item-box"></div>
+                        <div class="item-data">123123.123</div>
+                        <div class="menu-box">
+                            <div class="menu-item">选项一</div>
+                            <div class="menu-item">选项二</div>
+                            <div class="menu-item">选项三</div>
                         </div>
-                        <div class="bg-box"></div>
                     </div>
-                    <div class="item-data">123123.123</div>
-                    <div class="menu-box">
-                        <div class="menu-item">选项一</div>
-                        <div class="menu-item">选项二</div>
-                        <div class="menu-item">选项三</div>
+                    <div class="list-item status2">
+                        <div class="item-box xiaomai">
+                            <div class="num-box">T123</div>
+                            <div class="show-box">
+                                <div class="sub-item-box"></div>
+                            </div>
+                            <div class="bg-box"></div>
+                        </div>
+                        <div class="item-data">123123.123</div>
+                        <div class="menu-box">
+                            <div class="menu-item">选项一</div>
+                            <div class="menu-item">选项二</div>
+                            <div class="menu-item">选项三</div>
+                        </div>
+                    </div>
+                    <div class="list-item status2">
+                        <div class="item-box xiaomai">
+                            <div class="num-box">T123</div>
+                            <div class="show-box">
+                                <div class="sub-item-box"></div>
+                            </div>
+                            <div class="bg-box"></div>
+                        </div>
+                        <div class="item-data">123123.123</div>
+                        <div class="menu-box">
+                            <div class="menu-item">选项一</div>
+                            <div class="menu-item">选项二</div>
+                            <div class="menu-item">选项三</div>
+                        </div>
+                    </div>
+                    <div class="list-item status2">
+                        <div class="item-box xiaomai">
+                            <div class="num-box">T123</div>
+                            <div class="show-box">
+                                <div class="sub-item-box"></div>
+                            </div>
+                            <div class="bg-box"></div>
+                        </div>
+                        <div class="item-data">123123.123</div>
+                        <div class="menu-box">
+                            <div class="menu-item">选项一</div>
+                            <div class="menu-item">选项二</div>
+                            <div class="menu-item">选项三</div>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="storage-wrap float-l ccdw" style="display: none">
+                <div class="item-group">
+                    <div class="list-item status2">
+                        <div class="item-box xiaomai">
+                            <div class="num-box">T123</div>
+                            <div class="show-box">
+                                <div class="sub-item-box"></div>
+                            </div>
+                            <div class="bg-box"></div>
+                        </div>
+                        <div class="item-data">123123.123</div>
+                        <div class="menu-box">
+                            <div class="menu-item">选项一</div>
+                            <div class="menu-item">选项二</div>
+                            <div class="menu-item">选项三</div>
+                        </div>
+                    </div>
+                    <div class="list-item status2">
+                        <div class="item-box xiaomai">
+                            <div class="num-box">T123</div>
+                            <div class="show-box">
+                                <div class="sub-item-box"></div>
+                            </div>
+                            <div class="bg-box"></div>
+                        </div>
+                        <div class="item-data">123123.123</div>
+                        <div class="menu-box">
+                            <div class="menu-item">选项一</div>
+                            <div class="menu-item">选项二</div>
+                            <div class="menu-item">选项三</div>
+                        </div>
+                    </div>
+                    <div class="list-item status2">
+                        <div class="item-box xiaomai">
+                            <div class="num-box">T123</div>
+                            <div class="show-box">
+                                <div class="sub-item-box"></div>
+                            </div>
+                            <div class="bg-box"></div>
+                        </div>
+                        <div class="item-data">123123.123</div>
+                        <div class="menu-box">
+                            <div class="menu-item">选项一</div>
+                            <div class="menu-item">选项二</div>
+                            <div class="menu-item">选项三</div>
+                        </div>
+                    </div>
+                    <div class="list-item status2">
+                        <div class="item-box xiaomai">
+                            <div class="num-box">T123</div>
+                            <div class="show-box">
+                                <div class="sub-item-box"></div>
+                            </div>
+                            <div class="bg-box"></div>
+                        </div>
+                        <div class="item-data">123123.123</div>
+                        <div class="menu-box">
+                            <div class="menu-item">选项一</div>
+                            <div class="menu-item">选项二</div>
+                            <div class="menu-item">选项三</div>
+                        </div>
+                    </div>
+                    <div class="list-item status2">
+                        <div class="item-box xiaomai">
+                            <div class="num-box">T123</div>
+                            <div class="show-box">
+                                <div class="sub-item-box"></div>
+                            </div>
+                            <div class="bg-box"></div>
+                        </div>
+                        <div class="item-data">123123.123</div>
+                        <div class="menu-box">
+                            <div class="menu-item">选项一</div>
+                            <div class="menu-item">选项二</div>
+                            <div class="menu-item">选项三</div>
+                        </div>
+                    </div>
+                    <div class="list-item status2">
+                        <div class="item-box xiaomai">
+                            <div class="num-box">T123</div>
+                            <div class="show-box">
+                                <div class="sub-item-box"></div>
+                            </div>
+                            <div class="bg-box"></div>
+                        </div>
+                        <div class="item-data">123123.123</div>
+                        <div class="menu-box">
+                            <div class="menu-item">选项一</div>
+                            <div class="menu-item">选项二</div>
+                            <div class="menu-item">选项三</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="storage-wrap float-l kczl" style="display: none">
+                <div class="item-group">
+                    <div class="list-item status2">
+                        <div class="item-box xiaomai">
+                            <div class="num-box">T123</div>
+                            <div class="show-box">
+                                <div class="sub-item-box"></div>
+                            </div>
+                            <div class="bg-box"></div>
+                        </div>
+                        <div class="item-data">123123.123</div>
+                        <div class="menu-box">
+                            <div class="menu-item">选项一</div>
+                            <div class="menu-item">选项二</div>
+                            <div class="menu-item">选项三</div>
+                        </div>
+                    </div>
+                    <div class="list-item status2">
+                        <div class="item-box xiaomai">
+                            <div class="num-box">T123</div>
+                            <div class="show-box">
+                                <div class="sub-item-box"></div>
+                            </div>
+                            <div class="bg-box"></div>
+                        </div>
+                        <div class="item-data">123123.123</div>
+                        <div class="menu-box">
+                            <div class="menu-item">选项一</div>
+                            <div class="menu-item">选项二</div>
+                            <div class="menu-item">选项三</div>
+                        </div>
+                    </div>
+                    <div class="list-item status2">
+                        <div class="item-box xiaomai">
+                            <div class="num-box">T123</div>
+                            <div class="show-box">
+                                <div class="sub-item-box"></div>
+                            </div>
+                            <div class="bg-box"></div>
+                        </div>
+                        <div class="item-data">123123.123</div>
+                        <div class="menu-box">
+                            <div class="menu-item">选项一</div>
+                            <div class="menu-item">选项二</div>
+                            <div class="menu-item">选项三</div>
+                        </div>
+                    </div>
+                    <div class="list-item status2">
+                        <div class="item-box xiaomai">
+                            <div class="num-box">T123</div>
+                            <div class="show-box">
+                                <div class="sub-item-box"></div>
+                            </div>
+                            <div class="bg-box"></div>
+                        </div>
+                        <div class="item-data">123123.123</div>
+                        <div class="menu-box">
+                            <div class="menu-item">选项一</div>
+                            <div class="menu-item">选项二</div>
+                            <div class="menu-item">选项三</div>
+                        </div>
+                    </div>
+                    <div class="list-item status2">
+                        <div class="item-box xiaomai">
+                            <div class="num-box">T123</div>
+                            <div class="show-box">
+                                <div class="sub-item-box"></div>
+                            </div>
+                            <div class="bg-box"></div>
+                        </div>
+                        <div class="item-data">123123.123</div>
+                        <div class="menu-box">
+                            <div class="menu-item">选项一</div>
+                            <div class="menu-item">选项二</div>
+                            <div class="menu-item">选项三</div>
+                        </div>
+                    </div>
+                    <div class="list-item status2">
+                        <div class="item-box xiaomai">
+                            <div class="num-box">T123</div>
+                            <div class="show-box">
+                                <div class="sub-item-box"></div>
+                            </div>
+                            <div class="bg-box"></div>
+                        </div>
+                        <div class="item-data">123123.123</div>
+                        <div class="menu-box">
+                            <div class="menu-item">选项一</div>
+                            <div class="menu-item">选项二</div>
+                            <div class="menu-item">选项三</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="count-wrap float-r">
                 <div class="count-list-box">
                     <div class="list-item title">
@@ -349,17 +376,18 @@
     </div>
     <div class="bottom-container">
         <div class="center-con">
-            <div class="icon-item xiaomai"><span class="test">小麦</span></div>
-            <div class="icon-item dadou"><span class="test">大豆</span></div>
-            <div class="icon-item yumi"><span class="test">玉米</span></div>
-            <div class="icon-item wanxianmi"><span class="test">晚籼米</span></div>
+            <div class="icon-item xiaomai"  v-for="item in tuli" :class="item.GB | pz"><span class="test">{{item.GB_NAME}}</span></div>
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    var warehouseId = "45991F5A797CEC03C1BC7963D84DFEAC";
+</script>
+<script type="text/javascript" src="../js/vue_getDate.js"></script>
 <script>
     $(function () {
         $(document).bind("contextmenu", function (e) {
-            //console.log(warehouseId);
+
             return false;
         });
     });

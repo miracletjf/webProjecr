@@ -1,31 +1,56 @@
-/**
- * Created by MiracleTJF on 2017/8/11.
- */
+//计算公式
 var formula_array = [];
+//校验公式
+var valid_array = [];
+var operation_array = ['>=','==','<=','!=','>','<'];
 
+/*获取校验运算符*/
+function GetOperation(valid){
+    for(var i = 0;i < operation_array.length;i++) {
+        if(valid.indexOf(operation_array[i])>-1) {
+            return operation_array[i];
+        }
+    }
+}
+/*全部计算*/
 function CALAll(myform){
-    var i;
-    for (i=0;i<myform.elements.length;i++) {
-        if ((myform.elements[i].getAttribute("onblur")+"").indexOf("ColInput(this)")) {
-            ColInput(myform.elements[i]);
+    for (var i=0;i<myform.elements.length;i++) {
+        if ((myform.elements[i].getAttribute("onblur")+"").indexOf("ColInput(this)")>-1) {
+            if(ColInput(myform.elements[i]) == false) {
+                var obj = myform.elements[i];
+                tdActive(obj.parentNode.parentNode);
+                obj.select();
+                return false;
+            }
         }
     }
+    return true;
 }
-
-/*输入校验*/
+/*输入计算、校验*/
 function ColInput(obj) {
-    if (checkInput(obj)) {
-        var RowCode = obj.getAttribute("row");
-        var ColCode = obj.getAttribute("col");
-        for (j = 0; j < formula_array.length; j++) {
+    if (checkInput(obj) == false) return false;
+    var RowCode = obj.getAttribute("row");
+    var ColCode = obj.getAttribute("col");
+    for (var j = 0; j < formula_array.length; j++) {
+        var ListName = "entitylist";
+        var f = formula_array[j].split(",");
+        if(f.length>1)	ListName=f[1];
+        CAL(f[0], RowCode, ColCode, ListName);
+    }
+    if(obj.value!=""){
+        for (var j = 0; j < valid_array.length; j++) {
             var ListName = "entitylist";
-            var f = formula_array[j].split(",");
-            if(f.length>1)	ListName=f[1];
-            CAL(f[0], RowCode, ColCode, ListName);
+            var v = valid_array[j].split(",");
+            if(v.length>1)	ListName=v[1];
+            var r = VAL(v[0], RowCode, ColCode, ListName)
+            if(r[0]==false) {
+                alert("数据错误！不符合公式："+r[1]);
+                return false;
+            }
         }
     }
+    return true;
 }
-
 /*计算*/
 function CAL(formula, RowCode, ColCode, ListName) {
     var result = formula.split("=")[0].replace(/\"/g, "");
@@ -37,92 +62,214 @@ function CAL(formula, RowCode, ColCode, ListName) {
         CAL_L(formula, RowCode, ColCode, ListName);
     }
 }
-
-/*单元格计算*/
-
-function CAL_L(formula, RowCode, ColCode, ListName) {
-    var result = formula.split("=")[0];
-    var process = formula.split("=")[1];
-    var reg = /\"([^\"]*)\"/g;
-    var arr = process.match(reg);
-    var fnull = 0;
-    for (i = 0; i < arr.length; i++) {
-        var r = arr[i].replace(/\"/g, "").replace(/[^0-9]+/g, "")-1;
-        var c = arr[i].replace(/\"/g, "").replace(/[^a-zA-Z]+/g, "");
-        var val = "";
-        if(document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0])
-            val = document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0].value;
-        if (val != "") fnull++;
-        process = process.replace(arr[i], Number(val));
+/*校验*/
+function VAL(valid, RowCode, ColCode, ListName) {
+    var operation = GetOperation(valid);
+    var result = valid.split(operation)[0].replace(/\"/g, "");
+    var r = true;
+    if (/^\d+$/.test(result)) {
+        r = VAL_C(valid, RowCode, ColCode, ListName);
+    } else if (/^[A-Za-z]+$/.test(result)) {
+        r = VAL_R(valid, RowCode, ColCode, ListName);
+    } else {
+        r = VAL_L(valid, RowCode, ColCode, ListName);
     }
-    var r = result.replace(/\"/g, "").replace(/[^0-9]+/g, "")-1;
-    var c = result.replace(/\"/g, "").replace(/[^a-zA-Z]+/g, "");
-    var val = "";
-    if (fnull != 0) val = Number(eval(process)).toFixed(2);
-    if(document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0]){
-        var robj = document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0];
-        robj.value = val;
-        showVal(robj, val);
+    return r;
+}
+/*单元格计算*/
+function CAL_L(formula, RowCode, ColCode, ListName) {
+    if(formula.indexOf('"'+ ColCode + (Number(RowCode)+1) +'"')>-1){
+        var result = formula.split("=")[0];
+        var process = formula.split("=")[1];
+        var reg = /\"([^\"]*)\"/g;
+        var arr = process.match(reg);
+        var fnull = 0;
+        for (var i = 0; i < arr.length; i++) {
+            var r = arr[i].replace(/\"/g, "").replace(/[^0-9]+/g, "")-1;
+            var c = arr[i].replace(/\"/g, "").replace(/[^a-zA-Z]+/g, "");
+            var val = "";
+            if(document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0])
+                val = document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0].value;
+            if (val != "") fnull++;
+            process = process.replace(arr[i], Number(val));
+        }
+        var r = result.replace(/\"/g, "").replace(/[^0-9]+/g, "")-1;
+        var c = result.replace(/\"/g, "").replace(/[^a-zA-Z]+/g, "");
+        var val = "";
+        if (fnull != 0) val = Number(eval(process)).toFixed(2);
+        if(document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0]){
+            var robj = document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0];
+            robj.value = val;
+            showVal(robj, val);
+        }
     }
 }
-
+/*单元格校验*/
+function VAL_L(valid, RowCode, ColCode, ListName) {
+    if(valid.indexOf('"'+ ColCode + (Number(RowCode)+1) +'"')>-1){
+        var operation = GetOperation(valid);
+        var result = valid.split(operation)[0];
+        var process = valid.split(operation)[1];
+        var display = process;
+        var reg = /\"([^\"]*)\"/g;
+        var arr = process.match(reg);
+        var fnull = 0;
+        for (var i = 0; i < arr.length; i++) {
+            var r = arr[i].replace(/\"/g, "").replace(/[^0-9]+/g, "")-1;
+            var c = arr[i].replace(/\"/g, "").replace(/[^a-zA-Z]+/g, "");
+            var val = "";var dis = arr[i];
+            if(document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0]) {
+                val = document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0].value;
+                dis = document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0].getAttribute("eos_displayname");
+            }
+            if (val != "") fnull++;
+            display = display.replace(arr[i], dis);
+            process = process.replace(arr[i], Number(val));
+        }
+        var r = result.replace(/\"/g, "").replace(/[^0-9]+/g, "")-1;
+        var c = result.replace(/\"/g, "").replace(/[^a-zA-Z]+/g, "");
+        var val = "";
+        if (fnull != 0) val = Number(eval(process)).toFixed(2);
+        if(document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0]){
+            var robj = document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0];
+            var v = "Number(" + robj.value + ")" + operation + "Number(" + val + ")";
+            return [eval(v),robj.getAttribute("eos_displayname") + operation + display];
+        }
+        return true;
+    }
+    return true;
+}
 /*行计算*/
-
 function CAL_C(formula, RowCode, ColCode, ListName) {
-    var result = formula.split("=")[0];
-    var process = formula.split("=")[1];
-    var reg = /\"([^\"]*)\"/g;
-    var arr = process.match(reg);
-    var fnull = 0;
-    for (i = 0; i < arr.length; i++) {
-        var r = arr[i].replace(/\"/g, "")-1;
+    if(formula.indexOf('"'+ Number(RowCode)+1 +'"')>-1){
+        var result = formula.split("=")[0];
+        var process = formula.split("=")[1];
+        var reg = /\"([^\"]*)\"/g;
+        var arr = process.match(reg);
+        var fnull = 0;
+        for (var i = 0; i < arr.length; i++) {
+            var r = arr[i].replace(/\"/g, "")-1;
+            var c = ColCode;
+            var val = "";
+            if(document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0])
+                val = document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0].value;
+            if (val != "") fnull++;
+            process = process.replace(arr[i], Number(val));
+        }
+        var r = result.replace(/\"/g, "")-1;
         var c = ColCode;
         var val = "";
-        if(document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0])
-            val = document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0].value;
-        if (val != "") fnull++;
-        process = process.replace(arr[i], Number(val));
-    }
-    var r = result.replace(/\"/g, "")-1;
-    var c = ColCode;
-    var val = "";
-    if (fnull != 0) val = Number(eval(process)).toFixed(2);
-    if(document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0]){
-        var robj = document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0];
-        robj.value = val;
-        showVal(robj, val);
+        if (fnull != 0) val = Number(eval(process)).toFixed(2);
+        if(document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0]){
+            var robj = document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0];
+            robj.value = val;
+            showVal(robj, val);
+        }
     }
 }
-
+/*行校验*/
+function VAL_C(valid, RowCode, ColCode, ListName) {
+    if(valid.indexOf('"'+ Number(RowCode)+1 +'"')>-1){
+        var operation = GetOperation(valid);
+        var result = valid.split(operation)[0];
+        var process = valid.split(operation)[1];
+        var display = process;
+        var reg = /\"([^\"]*)\"/g;
+        var arr = process.match(reg);
+        var fnull = 0;var dis = arr[i];
+        for (var i = 0; i < arr.length; i++) {
+            var r = arr[i].replace(/\"/g, "")-1;
+            var c = ColCode;
+            var val = "";
+            if(document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0]) {
+                val = document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0].value;
+                dis = document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0].getAttribute("eos_displayname");
+            }
+            if (val != "") fnull++;
+            display = display.replace(arr[i], dis);
+            process = process.replace(arr[i], Number(val));
+        }
+        var r = result.replace(/\"/g, "")-1;
+        var c = ColCode;
+        var val = "";
+        if (fnull != 0) val = Number(eval(process)).toFixed(2);
+        if(document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0]){
+            var robj = document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0];
+            var v = "Number(" + robj.value + ")" + operation + "Number(" + val + ")";
+            return [eval(v),robj.getAttribute("eos_displayname") + operation + display];
+        }
+        return true;
+    }
+    return true;
+}
 /*列计算*/
-
 function CAL_R(formula, RowCode, ColCode, ListName) {
-    var result = formula.split("=")[0];
-    var process = formula.split("=")[1];
-    var reg = /\"([^\"]*)\"/g;
-    var arr = process.match(reg);
-    var fnull = 0;
-    for (i = 0; i < arr.length; i++) {
-        //alert(arr[i].replace(/\"/g,""));
-        //公式替换
+    if(formula.indexOf('"' + ColCode + '"')>-1){
+        var result = formula.split("=")[0];
+        var process = formula.split("=")[1];
+        var reg = /\"([^\"]*)\"/g;
+        var arr = process.match(reg);
+        var fnull = 0;
+        for (var i = 0; i < arr.length; i++) {
+            //alert(arr[i].replace(/\"/g,""));
+            //公式替换
+            var r = RowCode;
+            var c = arr[i].replace(/\"/g, "");
+            val = "";
+            if(document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0])
+                val = document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0].value;
+            if (val != "") fnull++;
+            process = process.replace(arr[i], Number(val));
+        }
+        //公式计算、赋值
         var r = RowCode;
-        var c = arr[i].replace(/\"/g, "");
-        val = "";
-        if(document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0])
-            val = document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0].value;
-        if (val != "") fnull++;
-        process = process.replace(arr[i], Number(val));
+        var c = result.replace(/\"/g, "");
+        var val = "";
+        if (fnull != 0) val = Number(eval(process)).toFixed(2);
+        if(document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0]){
+            var robj = document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0];
+            robj.value = val;
+            showVal(robj, val);
+        }
     }
-    //公式计算、赋值
-    var r = RowCode;
-    var c = result.replace(/\"/g, "");
-    var val = "";
-    if (fnull != 0) val = Number(eval(process)).toFixed(2);
-    if(document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0]){
-        var robj = document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0];
-        robj.value = val;
-        showVal(robj, val);
+}
+/*列校验*/
+function VAL_R(valid, RowCode, ColCode, ListName) {
+    if(valid.indexOf('"' + ColCode + '"')>-1){
+        var operation = GetOperation(valid);
+        var result = valid.split(operation)[0];
+        var process = valid.split(operation)[1];
+        var display = process;
+        var reg = /\"([^\"]*)\"/g;
+        var arr = process.match(reg);
+        var fnull = 0;var dis = arr[i];
+        for (var i = 0; i < arr.length; i++) {
+            //alert(arr[i].replace(/\"/g,""));
+            //公式替换
+            var r = RowCode;
+            var c = arr[i].replace(/\"/g, "");
+            val = "";
+            if(document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0]) {
+                val = document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0].value;
+                dis = document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0].getAttribute("eos_displayname");
+            }
+            if (val != "") fnull++;
+            display = display.replace(arr[i], dis);
+            process = process.replace(arr[i], Number(val));
+        }
+        //公式计算、赋值
+        var r = RowCode;
+        var c = result.replace(/\"/g, "");
+        var val = "";
+        if (fnull != 0) val = Number(eval(process)).toFixed(2);
+        if(document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0]){
+            var robj = document.getElementsByName(ListName+"/entity[@hciTagIndex='" + r + "']/COL_" + c)[0];
+            var v = "Number(" + robj.value + ")" + operation + "Number(" + val + ")";
+            return [eval(v),robj.getAttribute("eos_displayname") + operation + display];
+        }
+        return true;
     }
+    return true;
 }
 
 /*对象是否在数组中*/
@@ -166,10 +313,10 @@ function showVal(obj, val) {
  */
 function freezeTable(table, freezeRowNum, freezeColumnNum, width, height) {
     if (typeof(freezeRowNum) == 'string')
-        freezeRowNum = parseInt(freezeRowNum);
+        freezeRowNum = parseInt(freezeRowNum)
 
     if (typeof(freezeColumnNum) == 'string')
-        freezeColumnNum = parseInt(freezeColumnNum);
+        freezeColumnNum = parseInt(freezeColumnNum)
 
     var tableId;
     if (typeof(table) == 'string') {
@@ -208,47 +355,11 @@ function freezeTable(table, freezeRowNum, freezeColumnNum, width, height) {
     var divTableHead = freezeRowNum > 0 ? $("#" + tableId + "_tableHead") : null;
     var divTableColumn = freezeColumnNum > 0 ? $("#" + tableId + "_tableColumn") : null;
     var divTableData = $("#" + tableId + "_tableData");
-    var tableClone = table.clone(true);
+
     divTableData.append(table);
 
-    if (divTableFix != null) {
-        var tableFixClone = tableClone;
-        tableFixClone.attr("id", tableId + "_tableFixClone");
-        tableFixClone.find("tr").each(function(RowIndex){
-            if(RowIndex>=freezeRowNum){
-                $(this).children().find("input,select").remove();
-            }
-            else{
-                $(this).find("td").each(function(ColumnIndex){
-                    if(ColumnIndex>=freezeColumnNum){
-                        $(this).find("input,select").remove();
-                    }
-                })
-            }
-        })
-        divTableFix.append(tableFixClone);
-    }
-
-    if (divTableHead != null) {
-        var tableHeadClone = tableClone;
-        tableHeadClone.attr("id", tableId + "_tableHeadClone");
-        tableHeadClone.find("tr").each(function(RowIndex){
-            if(RowIndex>=freezeRowNum){
-                $(this).children().find("input,select").remove();
-            }
-            else{
-                $(this).find("td").each(function(ColumnIndex){
-                    if(ColumnIndex<freezeColumnNum){
-                        $(this).find("input,select").remove();
-                    }
-                })
-            }
-        })
-        divTableHead.append(tableHeadClone);
-    }
-
     if (divTableColumn != null) {
-        var tableColumnClone = tableClone;
+        var tableColumnClone = table.clone(true);
         tableColumnClone.attr("id", tableId + "_tableColumnClone");
         tableColumnClone.find("tr").each(function(RowIndex){
             if(RowIndex<freezeRowNum){
@@ -263,6 +374,42 @@ function freezeTable(table, freezeRowNum, freezeColumnNum, width, height) {
             }
         })
         divTableColumn.append(tableColumnClone);
+    }
+
+    if (divTableHead != null) {
+        var tableHeadClone = table.clone(true);
+        tableHeadClone.attr("id", tableId + "_tableHeadClone");
+        tableHeadClone.find("tr").each(function(RowIndex){
+            if(RowIndex>=freezeRowNum){
+                $(this).remove();
+            }
+            else{
+                $(this).find("td").each(function(ColumnIndex){
+                    if(ColumnIndex<freezeColumnNum){
+                        $(this).find("input,select").remove();
+                    }
+                })
+            }
+        })
+        divTableHead.append(tableHeadClone);
+    }
+
+    if (divTableFix != null) {
+        var tableFixClone = table.clone(true);
+        tableFixClone.attr("id", tableId + "_tableFixClone");
+        tableFixClone.find("tr").each(function(RowIndex){
+            if(RowIndex>=freezeRowNum){
+                $(this).remove();
+            }
+            else{
+                $(this).find("td").each(function(ColumnIndex){
+                    if(ColumnIndex>=freezeColumnNum){
+                        $(this).remove();
+                    }
+                })
+            }
+        })
+        divTableFix.append(tableFixClone);
     }
 
     divTableData.find("tr").each(function(RowIndex){
@@ -280,28 +427,6 @@ function freezeTable(table, freezeRowNum, freezeColumnNum, width, height) {
 
     $("#" + tableId + "_tableLayout table").css("margin", "0");
 
-    if (freezeRowNum > 0) {
-        var HeadHeight = 0;
-        var ignoreRowNum = 0;
-        $("#" + tableId + "_tableHead tr:lt(" + freezeRowNum + ")").each(function () {
-            if (ignoreRowNum > 0)
-                ignoreRowNum--;
-            else {
-                var td = $(this).find('td:first, th:first');
-                HeadHeight += td.outerHeight(true);
-
-                ignoreRowNum = td.attr('rowSpan');
-                if (typeof(ignoreRowNum) == 'undefined')
-                    ignoreRowNum = 0;
-                else
-                    ignoreRowNum = parseInt(ignoreRowNum) - 1;
-            }
-        });
-//        HeadHeight += 2;
-
-        divTableHead.css("height", HeadHeight);
-        divTableFix != null && divTableFix.css("height", HeadHeight);
-    }
 
     if (freezeColumnNum > 0) {
         var ColumnsWidth = 0;
@@ -317,7 +442,6 @@ function freezeTable(table, freezeRowNum, freezeColumnNum, width, height) {
 //        ColumnsWidth += 2;
 
         divTableColumn.css("width", ColumnsWidth);
-        divTableFix != null && divTableFix.css("width", ColumnsWidth);
     }
 
     divTableData.scroll(function () {

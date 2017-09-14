@@ -4,18 +4,18 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/styleHealth.css">
     <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
-    <title>绍兴粮网</title>
+    <title>粮情分析</title>
 </head>
 <body>
 <div class="wrap">
     <div class="center-cotar">
         <div class="left-box">
             <div class="l-top">
-                <span class="text-title">直属库健康指数</span>
+                <span class="text-title">库区虫害指数</span>
                 <div class="chart-box" id="chart1"></div>
                 <div class="box">
                     <div class="text-box">
-                        <span class="text">今日健康指数：</span>
+                        <span class="text">今日虫害指数：</span>
                         <span class="name">15</span>
                     </div>
                     <div class="text-box">
@@ -29,12 +29,12 @@
                 </div>
             </div>
             <div class="l-bottom">
-                <span class="text-title">仓房健康指数</span>
+                <span class="text-title">仓房虫害指数</span>
                 <div class="chart-box" id="chart2"></div>
             </div>
         </div>
         <div class="right-box">
-            <span class="text-title">仓房健康指数详细信息</span>
+            <span class="text-title">仓房虫害指数详细信息</span>
             <div class="box">
                 <ul class="menu">
                     <li class="item active" tabTitle="tab1">严重</li>
@@ -50,7 +50,7 @@
                                 <td width="20%">品种</td>
                                 <td width="20%">数量(kg)</td>
                                 <td width="20%">收获年份</td>
-                                <td width="20%">健康指数</td>
+                                <td width="20%">虫害指数</td>
                             </tr>
                             <tr class="pg_result_content">
                                 <td>G001</td>
@@ -64,7 +64,7 @@
                                 <td>粳米</td>
                                 <td>2500000</td>
                                 <td>2014</td>
-                                <td class="red">68</td>
+                                <td class="red">88</td>
                             </tr>
                             </tbody>
                         </table>
@@ -77,21 +77,35 @@
                                 <td width="20%">品种</td>
                                 <td width="20%">数量(kg)</td>
                                 <td width="20%">收获年份</td>
-                                <td width="20%">健康指数</td>
+                                <td width="20%">虫害指数</td>
                             </tr>
                             <tr class="pg_result_content">
                                 <td>G011</td>
                                 <td>晚籼米</td>
                                 <td>1000000</td>
                                 <td>2015</td>
-                                <td class="red">75</td>
+                                <td class="yellow">35</td>
                             </tr>
                             <tr class="pg_result_content_">
                                 <td>G012</td>
                                 <td>粳米</td>
                                 <td>2500000</td>
                                 <td>2014</td>
-                                <td class="red">68</td>
+                                <td class="yellow">38</td>
+                            </tr>
+                            <tr class="pg_result_content_">
+                                <td>G013</td>
+                                <td>粳米</td>
+                                <td>2500000</td>
+                                <td>2014</td>
+                                <td class="yellow">36</td>
+                            </tr>
+                            <tr class="pg_result_content_">
+                                <td>G014</td>
+                                <td>粳米</td>
+                                <td>2500000</td>
+                                <td>2014</td>
+                                <td class="yellow">48</td>
                             </tr>
                             </tbody>
                         </table>
@@ -104,21 +118,105 @@
                                 <td width="20%">品种</td>
                                 <td width="20%">数量(kg)</td>
                                 <td width="20%">收获年份</td>
-                                <td width="20%">健康指数</td>
+                                <td width="20%">虫害指数</td>
                             </tr>
                             <tr class="pg_result_content">
                                 <td>G021</td>
                                 <td>晚籼米</td>
                                 <td>1000000</td>
                                 <td>2015</td>
-                                <td class="red">75</td>
+                                <td class="green">15</td>
                             </tr>
                             <tr class="pg_result_content_">
                                 <td>G022</td>
                                 <td>粳米</td>
                                 <td>2500000</td>
                                 <td>2014</td>
-                                <td class="red">68</td>
+                                <td class="green">18</td>
+                            </tr>
+                            <tr class="pg_result_content">
+                                <td>G023</td>
+                                <td>晚籼米</td>
+                                <td>1000000</td>
+                                <td>2015</td>
+                                <td class="green">12</td>
+                            </tr>
+                            <tr class="pg_result_content_">
+                                <td>G024</td>
+                                <td>粳米</td>
+                                <td>2500000</td>
+                                <td>2014</td>
+                                <td class="green">8</td>
+                            </tr>
+                            <tr class="pg_result_content">
+                                <td>G025</td>
+                                <td>晚籼米</td>
+                                <td>1000000</td>
+                                <td>2015</td>
+                                <td class="green">10</td>
+                            </tr>
+                            <tr class="pg_result_content_">
+                                <td>G026</td>
+                                <td>粳米</td>
+                                <td>2500000</td>
+                                <td>2014</td>
+                                <td class="green">9</td>
+                            </tr>
+                            <tr class="pg_result_content">
+                                <td>G027</td>
+                                <td>晚籼米</td>
+                                <td>1000000</td>
+                                <td>2015</td>
+                                <td class="green">11</td>
+                            </tr>
+                            <tr class="pg_result_content_">
+                                <td>G028</td>
+                                <td>粳米</td>
+                                <td>2500000</td>
+                                <td>2014</td>
+                                <td class="green">18</td>
+                            </tr>
+                            <tr class="pg_result_content">
+                                <td>G029</td>
+                                <td>晚籼米</td>
+                                <td>1000000</td>
+                                <td>2015</td>
+                                <td class="green">15</td>
+                            </tr>
+                            <tr class="pg_result_content_">
+                                <td>G0210</td>
+                                <td>粳米</td>
+                                <td>2500000</td>
+                                <td>2014</td>
+                                <td class="green">6</td>
+                            </tr>
+                            <tr class="pg_result_content">
+                                <td>G0211</td>
+                                <td>晚籼米</td>
+                                <td>1000000</td>
+                                <td>2015</td>
+                                <td class="green">15</td>
+                            </tr>
+                            <tr class="pg_result_content_">
+                                <td>G0212</td>
+                                <td>粳米</td>
+                                <td>2500000</td>
+                                <td>2014</td>
+                                <td class="green">12</td>
+                            </tr>
+                            <tr class="pg_result_content">
+                                <td>G0213</td>
+                                <td>晚籼米</td>
+                                <td>1000000</td>
+                                <td>2015</td>
+                                <td class="green">15</td>
+                            </tr>
+                            <tr class="pg_result_content_">
+                                <td>G0214</td>
+                                <td>粳米</td>
+                                <td>2500000</td>
+                                <td>2014</td>
+                                <td class="green">12</td>
                             </tr>
                             </tbody>
                         </table>

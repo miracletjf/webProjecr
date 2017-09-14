@@ -146,6 +146,7 @@ table.pg_result input[type="button"] {
 .center-cotar {
 	width: 1480px;
 	margin: 0 auto;
+	padding: 30px 0;
 	font-size: 0;
 }
 .left-box {
@@ -251,5 +252,11 @@ table.pg_result input[type="button"] {
 }
 .red {
 	color: #f00;
+}
+.yellow {
+	color: #ffb53e;
+}
+.green {
+	color: #57d3d4;
 }
 /*endregion*/

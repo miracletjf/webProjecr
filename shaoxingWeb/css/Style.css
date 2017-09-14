@@ -78,7 +78,7 @@ td,
   padding: 0;
   border: 0;
   background: transparent;
-  font-size: 15px;
+  font-size: 100%;
   /*line-height: 1em;*/
   font-family: "微软雅黑";
   color: #000;
@@ -272,6 +272,7 @@ input::-webkit-input-placeholder {
   font-size: 0;
 }
 .header .nav-box .nav-item {
+  position: relative;
   display: inline-block;
   vertical-align: middle;
   margin-right: 39px;
@@ -289,9 +290,40 @@ input::-webkit-input-placeholder {
 .header .nav-box .nav-item.active {
   background: url("icon/menu_bg.png") no-repeat center;
 }
+.header .nav-box .nav-item:hover .sub-nav-box {
+  display: block;
+}
 .header .nav-box .nav-item:last-child,
 .header .nav-box .nav-item.last {
   margin-right: 0;
+}
+.header .nav-box .nav-item .nav-text {
+  display: block;
+  color: #fff;
+}
+.header .nav-box .nav-item .sub-nav-box {
+  position: absolute;
+  display: none;
+  top: 50px;
+  left: 0;
+  right: 0;
+  background: #fff;
+  border: solid 1px #eee;
+  border-bottom: none;
+  z-index: 10;
+}
+.header .nav-box .nav-item .sub-nav-box .sub-nav-item {
+  display: block;
+  padding: 0 10px;
+  line-height: 36px;
+  text-align: center;
+  font-size: 15px;
+  border-bottom: solid 1px #eee;
+  cursor: pointer;
+}
+.header .nav-box .nav-item .sub-nav-box .sub-nav-item:hover {
+  color: #007840;
+  background: #f5f5f5;
 }
 /*endregion*/
 /*region footer 尾部*/
@@ -518,6 +550,16 @@ input::-webkit-input-placeholder {
   background: #007840;
   color: #fff;
 }
+.new {
+  display: inline-block;
+  margin: 0 2px;
+  padding: 0 3px;
+  line-height: 15px;
+  font-size: 12px;
+  color: #fff;
+  background: #fd930c;
+  border-radius: 3px;
+}
 /*endregion*/
 /*region 首页 index-wrap*/
 .index-wrap .top-box {
@@ -680,8 +722,9 @@ input::-webkit-input-placeholder {
   margin: 0 10.5px;
   width: 386px;
   height: 86px;
-  background: #f5f5f5;
+  background: #ccbaaa;
   cursor: pointer;
+  border-radius: 5px;
 }
 .index-wrap .link-box .link-item .text {
   display: block;
@@ -1069,6 +1112,17 @@ input::-webkit-input-placeholder {
 }
 /*endregion*/
 /*region pageDetail 详情页*/
+.page-detail tr,
+.page-detail td,
+.page-detail th {
+  border: solid 1px #333;
+}
+.page-detail table {
+  border: solid 1px #333;
+}
+.page-detail a {
+  text-decoration: underline;
+}
 .page-detail .detail-box {
   display: block;
   padding: 20px 50px;
@@ -1109,7 +1163,6 @@ input::-webkit-input-placeholder {
 .page-detail .detail-box .main-box p {
   display: block;
   font-size: 15px;
-  text-indent: 2em;
 }
 .page-detail .detail-box .btn-box {
   margin: 20px 0;

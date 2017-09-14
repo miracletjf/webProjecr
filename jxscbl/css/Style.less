@@ -6,6 +6,21 @@
 #Mt_initialize > .initialize(@minWidth,@defaultBg);
 
 /*region 常用布局*/
+//定义变量
+@subColor0: #1fd163;
+@subColor1: #e03a4e;
+@subColor2: #01c0dc;
+@subColor3: #ff5d5e;
+@subColor4: #f6a651;
+@subColor5: #44d7ab;
+@subColor6: #f39035;
+@subColor7: #4d68db;
+@subColor8: #e95893;
+@subColor9: #3599bb;
+@subColor10: #72df76;
+//宽高设置
+@tbHeight: 430px;
+
 //清除浮动
 .clear-float:after {
   content: '';
@@ -75,14 +90,14 @@
   background: url("../images/bg.jpg") no-repeat center;
   background-size: cover;
 }
+.ver-center {
+  text-align: center;
+}
 .center-wrap {
-  position: absolute;
-  left: 0;
-  top:0;
-  right: 0;
-  bottom: 0;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 120px;
   height: 710px;
-  margin: auto;
   z-index: 10;
 }
 .top-box {
@@ -138,12 +153,11 @@
       }
       &.td-item3 {
         height: @tbHeight/2 - 6px;
-        margin-bottom: 6px;
+        margin-bottom: 12px;
         margin-right: 12px;
       }
       &.td-item4 {
         height: @tbHeight/2 - 6px;
-        margin-top: 6px;
         margin-right: 12px;
       }
       &.td-item5 {
@@ -232,22 +246,19 @@
   margin-top: 100px;
   text-align: center;
   .text,.link {
-    display: inline-block;
     vertical-align: middle;
     margin-right: 10px;
     color: #fff;
     font-size: 20px;
-    line-height: 20px;
   }
   .link:hover {
     color: #23fbba;
   }
   .line {
-    display: inline-block;
     vertical-align: middle;
     width: 0;
     margin-right: 10px;
-    height: 16px;
+    height: 14px;
     border-right: solid 1px #fff;
   }
 }

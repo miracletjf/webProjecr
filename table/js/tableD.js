@@ -105,6 +105,7 @@ function tableToChange(callback) {
         var numObj = tableCreat($tablePrimary,1,5);
         fRows = $tableBox.attr("freezeRowNum")-(-1) || 1;
         fCols = $tableBox.attr("freezeColumnNum")-(-1) || 1;
+        console.log(fRows + ","+ fCols);
         freezeTable($("#table_primary"),fRows,fCols,winWidth,winHeight);
         $("#table_primary_tableHead .cell-box,#table_primary_tableColumn .cell-box,#table_primary_tableFix .cell-box").removeAttr("id");
         if( typeof (callback)=="function"){
